@@ -1,0 +1,64 @@
+{% extends "base.html" % {% block content %}
+
+<div class="container">
+    <div class="page-title form-heading col-md-12">
+        <h1>Edit Green building</h1>
+        <h5>Please, click "Update" after changes to confirm.</h5>
+    </div>
+    <div class="row">
+        <div class="col-md-12 mb-4">
+            <form action="{{url_for('update_house', houses=houses)}}" method="POST" name="updateHouse" id="updateHouse">
+                <div class="form-group">
+                    <i class="fas fa-align-center"></i><label class="form-field-description">Select Category</label>
+                        <select class="form-control category-formfield" id="category_name" name="category_name">
+                            <!-- Populate categories from database categories -->
+                            {% for category in categories %}
+                                {% if category.category_name == house.category_name %}
+                                <option value="{{category.category_name}}" selected>{{category.category_name}}</option>
+                                {% else %}
+                                <option value="{{category.category_name}}">{{category.category_name}}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                <div class="form-group">
+                    <div class="controls">
+                    <i class="fas fa-pencil-alt"></i><label class="form-field-description">Green building name</label>
+                    <input type="text" class="form-control" id="house_name" name="house_name" required data-validation-required-message="Please enter your house name." value="{{house.house_name}}" maxlength="100">
+                    </div>
+                </div>            
+                <div class="form-group">
+                    <div class="controls">
+                    <i class="far fa-images"></i><label class="form-field-description">Add picture</label>
+                    <input type="url" class="form-control" id="image" name="image" value="{{house.image}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="controls">
+                    <i class="fas fa-info"></i><label class="form-field-description">Description</label>
+                    <textarea class="form-control" id="description" name="description" required data-validation-required-message="Please enter a short recipe description." maxlength="1000">{{recipe.description}}</textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="controls">
+                    <i class="fas fa-list-ul"></i><label class="form-field-description">Main material used</label>
+                    <textarea class="form-control" id="categories" name="categories" rows="5" required data-validation-required-message="Please enter category" maxlength="3000">{{category_name}}</textarea>
+                    </div>
+                </div>            
+                <button type="submit" class="btn btn-success" onclick="alert_edit()" id="sendMessageButton">Update</button>
+                <a href="{{url_for('house_detail')}}" onclick="alert_no_edit()" class="btn btn-success">Cancel</a> 
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Alert prompts for editing or canceling edit process -->
+<script>
+function alert_edit(){
+        alert("Thank you! The building has been updated successfully.");
+    }
+function alert_no_edit(){
+        alert("The recipe has not been edited.");
+    }
+</script>
+
+{% endblock %}

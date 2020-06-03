@@ -1,0 +1,65 @@
+{% extends 'base.html' %} {% block content %}
+
+
+<!--Form to add a new house to the DB green_buildings -->
+
+    <h2 style="margin-top:100px; padding-left:50px;">Join the Green Builders Comunity</h2>
+    <h4 style="padding-left:50px;">Add your own green home and show it to the world!</h4> 
+
+<div class="container">
+    <div class="row">
+        <form class="col-md-12" action="{{url_for('insert_house')}}" method="POST" name="add_house" id="add_house">
+            <div class="input-field col-md-10">
+             <i class="material-icons">person_add</i>
+                <input id="name" type="text" class="validate">
+                <label for="name">Your Name</label>
+            </div>
+            <div class="input-field col-md-10">
+            <i class="material-icons">add_location</i>
+                <input id="location" type="text" class="validate">
+                <label for="location">Location</label>
+            </div>
+            <div class="input-field col-md-10">
+            <i class="material-icons">today</i>
+                <input id="year" type="text" class="validate">
+                <label for="year">Construction year</label>
+            </div>
+            <div class="input-field col-md-10">
+                <input id="house_name" type="text" class="validate">
+                <label for="house_name">Green Building Name</label>
+            </div>
+            <div class="input-field col-md-6">
+            <i class="material-icons">home</i>
+                <select class="form-control category-formfield" id="category_name" name="category_name">
+                    <option value="" disabled selected>Choose your option</option>
+<!-- Populates categories from DB green_buildings.categories -->
+                    {% for category in categories %}
+                        <option value="{{category.category_name}}" class="left">{{category.category_name}}</option>
+                    {% endfor %}
+                </select>
+                    <label>Green Buildings Categories</label>
+            </div>
+             <div class="input-field col-md-10">
+             <i class="material-icons">reorder</i>
+                <input id="description" type="text" class="validate">
+                <label for="description">Description</label>
+            </div>
+            <div class="input-field col-md-10">
+            <i class="small material-icons">add_a_photo</i>
+            <p>Add your own Green Building</p>
+                <div class="btn">
+                     <input id="image" type="file">
+                </div>
+            </div>
+            <div class="col-md-10">
+            <div class="btn-group" role="group" style="padding-left:260px;">
+                <button type="button" class="btn btn-suscess">Insert</button>
+                <button type="button" class="btn btn-suscess" href="{{url_for('index')}}">Cancel</button>
+            </div>
+            </div>
+        </form>
+        </div>
+    </div>
+
+
+{% endblock %}

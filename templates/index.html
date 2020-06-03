@@ -1,0 +1,88 @@
+{% extends 'base.html' %} {% block content %}
+<!-- Masthead -->
+  <header class="masthead text-white text-center" style="background-image: url('{{ url_for('static', filename='img/stone_home.jpg') }}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <h2 class="mb-5">Welcome to the Green Builders Comunity.<br></h2>
+          <h3>This is your site to learn, share and chat about small sustainable houses!</h3>
+        </div>
+        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+          
+        </div>
+      </div>
+      </div>
+  </header>
+    <!-- Icons Grid -->
+<section class="features-icons bg-light text-center" style="padding-top: 0px;"> 
+    <div class="jumbotron jumbotron-fluid" style="margin-bottom: 0px;">       
+        <div class="container">
+            <h4>The common objective of green buildings is to reduce the overall impact of the built environment 
+        on human health and the natural environment by:</h4>
+        </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <i class="fas fa-sun m-auto text-success"></i>
+            </div>
+            <h3>Sustainable energy and natural resources use</h3>
+            <p class="lead mb-0">Efficiently using energy, water, and other resources</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <i class="fas fa-seedling m-auto text-success"></i>
+            </div>
+            <h3>Reducing environmental impact.</h3>
+            <p class="lead mb-0">Protecting your family and enviroment health.</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <i class="fas fa-warehouse m-auto text-success"></i>
+            </div>
+            <h3>Sustainable building materials</h3>
+            <p class="lead mb-0">Reducing waste, pollution and environmental degradation. Re-using materials.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> 
+
+     <!-- Image Showcases - Gallery -->
+  <section class="showcase">
+    <div class="container-fluid p-0">
+      <div class="row no-gutters">                                      
+            <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('{{ url_for('static', filename='img/earthship.jpg') }}')">
+            </div>
+            <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                <h2>Sustainable energy use</h2>
+                <p class="lead mb-0">Heating, ventilation and cooling system efficiency</p>
+            </div>
+        </div>
+      <div class="row no-gutters">
+            <div class="col-lg-6 text-white showcase-img" style="background-image: url('{{ url_for('static', filename='img/superadobe.jpg') }}')">
+            </div>
+            <div class="col-lg-6 my-auto showcase-text">
+                <h2>Sustainable building materials</h2>
+                <p class="lead mb-0">Recycled materials. Lower volatile organic compounds. Materials sustainability standards</p>
+            </div>
+      </div>
+      <div class="row no-gutters">
+            <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('{{ url_for('static', filename='img/ecowc.jpg') }}')" alt="wc eco" width="500" height="600">
+            </div>
+            <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                <h2>Waste management, reducing environmental impact</h2>
+            <p class="lead mb-0">Every building should be as small as possible and not to contribute to sprawl, even if the most energy-efficient, environmentally sound methods are used in design and construction.</p>
+            </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
