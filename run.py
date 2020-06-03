@@ -4,15 +4,18 @@ from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
-# Start application
+# Start application 
 
 app = Flask(__name__)
 app.config["MONGODB_NAME"] = "green_buildings"
-app.config["MONGO_URI"] = os.getenv('MONGODB_URI', 'mongodb://localhost')
+app.config["MONGO_URI"] = 'mongodb+srv://RoMar19:CodeStudent@cluster0-oourq.mongodb.net/green_buildings?retryWrites=true&w=majority'
+ 
+"""app.config["MONGODB_NAME"] = "green_buildings"
+app.config["MONGO_URI"] = os.getenv('MONGODB_URI', 'mongodb://localhost')"""
 
 # Connect to MongoDB function, password not visible
 
-MONGODB_URI = os.getenv("MONGODB_URI", "mongodb://localhost")
+"""MONGODB_URI = os.getenv("MONGODB_URI", "mongodb://localhost")
 MONGODB_NAME = "green_buildings"
 
 def mongo_connect(url):
@@ -24,8 +27,7 @@ def mongo_connect(url):
         print("Could not connect to MongoDB: %s") % e
 
 conn = mongo_connect(MONGODB_URI)
-coll = conn[MONGODB_NAME]
- 
+coll = conn[MONGODB_NAME]"""
 
 mongo = PyMongo(app)
 
@@ -44,10 +46,10 @@ def all_gallery():
 # Shows all houses in the gallery(DB) by category selection
 @app.route('/gallery/<select_category>')
 def gallery(select_category):
-    select_gallery = mongo.db.houses.find()
+    selected_gallery = mongo.db.houses.find()
     return render_template('gallery.html', 
-                          houses=select_gallery,
-                          categories=select_category,
+                          houses=selected_gallery,
+                          select_category=select_category,
                           page_title=select_category + "Green Buildings")
 
 # Shows details of the selected house with butons to Edit or Delete 
@@ -64,7 +66,7 @@ def house_detail(house_id):
 def add_house():
     house_categories = mongo.db.categories.find()
     return render_template('add_house.html', 
-                        categories= house_categories,
+                        categories=house_categories,
                         page_title="Add Your Own Green Building")
 
 # Inserts new houses to the DB after fill in Form add_house and press button
@@ -133,6 +135,6 @@ def delete_house(house_id):
 
 
 if __name__ == "__main__":
-    app.run(host=os.environ.get("IP"),
-            port=int(os.environ.get("PORT")),
+    app.run(host=os.environ.get("IP", "0.0.0.0"),
+            port=int(os.environ.get("PORT", "5000")),
             debug=True)

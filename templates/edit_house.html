@@ -13,7 +13,7 @@
                         <select class="form-control category-formfield" id="category_name" name="category_name">
                             <!-- Populate categories from database categories -->
                             {% for category in categories %}
-                                {% if category.category_name == house.category_name %}
+                                {% if category.category_name == house_id.category_name %}
                                 <option value="{{category.category_name}}" selected>{{category.category_name}}</option>
                                 {% else %}
                                 <option value="{{category.category_name}}">{{category.category_name}}</option>

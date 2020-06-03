@@ -30,14 +30,14 @@
             </div>
             <div class="input-field col-md-6">
             <i class="material-icons">home</i>
-                <select class="form-control category-formfield" id="category_name" name="category_name">
+                <select class="form-control categories-formfield" id="house_categories" name="house_categories">
                     <option value="" disabled selected>Choose your option</option>
 <!-- Populates categories from DB green_buildings.categories -->
-                    {% for category in categories %}
-                        <option value="{{category.category_name}}" class="left">{{category.category_name}}</option>
+                    {% for house_categories in categories %}
+                        <option value="{{categories.house_categories}}" class="left">{{categories.house_categories}}</option>
                     {% endfor %}
                 </select>
-                    <label>Green Buildings Categories</label>
+                    <label>Categories</label>
             </div>
              <div class="input-field col-md-10">
              <i class="material-icons">reorder</i>
