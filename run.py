@@ -3,28 +3,13 @@ from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
+
 # Start application 
 
 app = Flask(__name__)
 
-app.config["MONGODB_NAME"] = "green_buildings"
-app.config["MONGODB_URI"] = os.getenv('MONGODB_URI', 'mongodb://localhost')
-
-# Connect to MongoDB function, password not visible
-
-MONGODB_URI = os.getenv("MONGODB_URI", "mongodb://localhost")
-MONGODB_NAME = "green_buildings"
-
-def mongo_connect(url):
-    try:
-        conn = pymongo.MongoClient(url)
-        print("Mongo is connected!")
-        return conn
-    except pymongo.errors.ConnectionFailure as e:
-        print("Could not connect to MongoDB: %s") % e
-
-conn = mongo_connect(MONGODB_URI)
-coll = conn[MONGODB_NAME]
+app.config["MONGODB_NAME"] = 'green_buildings'
+app.config["MONGODB_URI"] = 'mongodb+srv://RoMar19:CodeStudent@cluster0-oourq.mongodb.net/green-buildings?retryWrites=true&w=majority'
 
 mongo = PyMongo(app)
 
@@ -38,13 +23,13 @@ def index():
 @app.route('/all_gallery')
 def all_gallery():
     houses = mongo.db.houses.find()
-    return render_template ('all_gallery.html', houses=houses)
+    return render_template ("all_gallery.html", houses=houses)
 
 # Shows all houses in the gallery(DB) by category selection
 @app.route('/gallery/<select_category>')
 def gallery(select_category):
     selected_gallery = mongo.db.houses.find()
-    return render_template('gallery.html', 
+    return render_template("gallery.html", 
                           houses=selected_gallery,
                           select_category=select_category,
                           page_title=select_category + "Green Buildings")
@@ -53,7 +38,7 @@ def gallery(select_category):
 @app.route('/house_detail/<house_id>')
 def house_detail(house_id):
     house_details = mongo.db.houses.find_one({"_id": ObjectId(house_id)})
-    return render_template('house_detail.html',
+    return render_template("house_detail.html",
                           houses=house_details,
                           page_title="Green building Info.")                          
                      
@@ -62,7 +47,7 @@ def house_detail(house_id):
 @app.route('/add_house')
 def add_house():
     house_categories = mongo.db.categories.find()
-    return render_template('add_house.html', 
+    return render_template("add_house.html", 
                         categories=house_categories,
                         page_title="Add Your Own Green Building")
 
@@ -95,7 +80,7 @@ def insert_house():
 def edit_house(house_id):
     house_details = mongo.db.houses.find_one({"_id": ObjectId(house_id)})
     house_categories = mongo.db.categories.find()
-    return render_template('edit_house.html',
+    return render_template("edit_house.html",
                             houses=house_details,
                             categories= house_categories,
                             page_title="Edit")
@@ -120,7 +105,7 @@ def update_house(house_id):
                 }
                 )
 
-    return redirect(url_for('house_detail',
+    return redirect(url_for("house_detail",
                             house_id=house_id))
 
 
@@ -128,7 +113,7 @@ def update_house(house_id):
 @app.route('/delete_house/<house_id>')
 def delete_house(house_id):
     mongo.db.houses.remove({"_id": ObjectId(house_id)})
-    return redirect(url_for('index'))
+    return redirect(url_for("index"))
 
 
 if __name__ == "__main__":
