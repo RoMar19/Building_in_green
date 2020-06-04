@@ -15,7 +15,7 @@
                     <!-- Populates categories from DB green_buildings.categories -->
                     {% for house_categories in categories %}
                         <option value="{{categories.house_categories}}" class="left">{{categories.house_categories}}</option>
-                    
+                    {% endfor %}
                 </select>
                 <div class="form-group">
                     <div class="controls">
