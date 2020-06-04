@@ -8,14 +8,12 @@ from bson.objectid import ObjectId
 
 app = Flask(__name__)
 app.config["MONGODB_NAME"] = "green_buildings"
-app.config["MONGO_URI"] = 'mongodb+srv://RoMar19:CodeStudent@cluster0-oourq.mongodb.net/green_buildings?retryWrites=true&w=majority'
- 
-"""app.config["MONGODB_NAME"] = "green_buildings"
-app.config["MONGO_URI"] = os.getenv('MONGODB_URI', 'mongodb://localhost')"""
+# ???? app.config["MONGO_URI"] = 'mongodb+srv://RoMar19:CodeStudent@cluster0-oourq.mongodb.net/green_buildings?retryWrites=true&w=majority'
+app.config["MONGO_URI"] = os.getenv('MONGODB_URI', 'mongodb://localhost')
 
 # Connect to MongoDB function, password not visible
 
-"""MONGODB_URI = os.getenv("MONGODB_URI", "mongodb://localhost")
+MONGODB_URI = os.getenv("MONGODB_URI", "mongodb://localhost")
 MONGODB_NAME = "green_buildings"
 
 def mongo_connect(url):
@@ -27,7 +25,7 @@ def mongo_connect(url):
         print("Could not connect to MongoDB: %s") % e
 
 conn = mongo_connect(MONGODB_URI)
-coll = conn[MONGODB_NAME]"""
+coll = conn[MONGODB_NAME]
 
 mongo = PyMongo(app)
 
@@ -40,8 +38,9 @@ def index():
 # Shows all houses of DB
 @app.route('/all_gallery')
 def all_gallery():
-    all_houses = mongo.db.houses.find()
-    return render_template ('all_gallery.html', houses=all_houses)
+    houses = mongo.db.houses.find()
+    categories = mongo.db.categories.find()
+    return render_template ('all_gallery.html', houses=houses, categories=categories)
 
 # Shows all houses in the gallery(DB) by category selection
 @app.route('/gallery/<select_category>')

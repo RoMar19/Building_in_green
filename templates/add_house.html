@@ -6,54 +6,57 @@
     <h2 style="margin-top:100px; padding-left:50px;">Join the Green Builders Comunity</h2>
     <h4 style="padding-left:50px;">Add your own green home and show it to the world!</h4> 
 
-<div class="container">
-    <div class="row">
-        <form class="col-md-12" action="{{url_for('insert_house')}}" method="POST" name="add_house" id="add_house">
-            <div class="input-field col-md-10">
-             <i class="material-icons">person_add</i>
-                <input id="name" type="text" class="validate">
-                <label for="name">Your Name</label>
-            </div>
-            <div class="input-field col-md-10">
-            <i class="material-icons">add_location</i>
-                <input id="location" type="text" class="validate">
-                <label for="location">Location</label>
-            </div>
-            <div class="input-field col-md-10">
-            <i class="material-icons">today</i>
-                <input id="year" type="text" class="validate">
-                <label for="year">Construction year</label>
-            </div>
-            <div class="input-field col-md-10">
-                <input id="house_name" type="text" class="validate">
-                <label for="house_name">Green Building Name</label>
-            </div>
-            <div class="input-field col-md-6">
-            <i class="material-icons">home</i>
+<div class="row">
+        <div class="col-md-12 mb-4">
+            <form action="{{url_for('insert_house')}}" method="POST" name="add_house" id="add_house">
+                <i class="material-icons">home</i>
                 <select class="form-control categories-formfield" id="house_categories" name="house_categories">
                     <option value="" disabled selected>Choose your option</option>
-<!-- Populates categories from DB green_buildings.categories -->
+                    <!-- Populates categories from DB green_buildings.categories -->
                     {% for house_categories in categories %}
                         <option value="{{categories.house_categories}}" class="left">{{categories.house_categories}}</option>
-                    {% endfor %}
+                    
                 </select>
-                    <label>Categories</label>
-            </div>
-             <div class="input-field col-md-10">
-             <i class="material-icons">reorder</i>
-                <input id="description" type="text" class="validate">
-                <label for="description">Description</label>
-            </div>
-            <div class="input-field col-md-10">
-            <i class="small material-icons">add_a_photo</i>
-            <p>Add your own Green Building</p>
-                <div class="btn">
-                     <input id="image" type="file">
+                <div class="form-group">
+                    <div class="controls">
+                        <i class="fas fa-pencil-alt"></i><label class="form-field-description">Your Name</label>
+                            <input type="text" class="form-control" id="user_name" name="user_name" required data-validation-required-message="Please enter your name." value="{{houses.user_name}}" maxlength="100">
+                    </div>
+                </div>      
+                <div class="form-group">
+                    <div class="controls">
+                    <i class="fas fa-pencil-alt"></i><label class="form-field-description">Green Building name</label>
+                        <input type="text" class="form-control" id="house_name" name="house_name" required data-validation-required-message="Please enter your house name." value="{{houses.house_name}}" maxlength="100">
+                    </div>
                 </div>
-            </div>
+                <div class="form-group">
+                    <div class="controls">
+                    <i class="fas fa-pencil-alt"></i><label class="form-field-description">Location</label>
+                        <input type="text" class="form-control" id="location" name="location" required data-validation-required-message="Please enter your location." value="{{houses.location}}" maxlength="100">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="controls">
+                    <i class="fas fa-pencil-alt"></i><label class="form-field-description">Year of construction</label>
+                        <input type="text" class="form-control" id="year" name="year" required data-validation-required-message="Please enter the year of construction." value="{{houses.year}}" maxlength="4">
+                    </div>
+                </div>                      
+                <div class="form-group">
+                    <div class="controls">
+                    <i class="far fa-images"></i><label class="form-field-description">Add your picture</label>
+                        <input type="file" class="form-control" id="image" name="image" value="{{houses.image}}">
+                        <button type="button" class="btn btn-suscess">Upload</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="controls">
+                    <i class="fas fa-info"></i><label class="form-field-description">Description</label>
+                    <textarea class="form-control" id="description" name="description" required data-validation-required-message="Please enter a short house description." maxlength="1000" value="{{houses.description}}"></textarea>
+                    </div>
+                </div>
             <div class="col-md-10">
             <div class="btn-group" role="group" style="padding-left:260px;">
-                <button type="button" class="btn btn-suscess">Insert</button>
+                <button type="submit" class="btn btn-suscess" id="sendMessageButton">Insert</button>
                 <button type="button" class="btn btn-suscess" href="{{url_for('index')}}">Cancel</button>
             </div>
             </div>
