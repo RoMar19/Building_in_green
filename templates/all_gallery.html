@@ -3,17 +3,17 @@
 
 <h1 style="margin-top:150px;">Check out what other builders share</h1> 
  
-    {% for houses in houses %} 
+    {% for house in houses %} 
 
     <div class="responsive">
         <div class="gallery">
             <a>
-            <img src="{{ houses.image }}" width="300" height="200">
+            <img src="{{ house.image }}" width="300" height="200">
             </a>
-            <div class="category">Category: {{ houses.category_name }}</div>
-            <div class="name">{{ houses.house_name }}</div>
-            <div class="desc">{{ houses.description }}</div>
-            <a href="{{url_for('house_detail')}}" class="btn btn-success" style="text-align:center;">More info.</a>
+            <div class="category">Category: {{ house.category_name }}</div>
+            <div class="name">{{ house.house_name }}</div>
+            <div class="desc">{{ house.description }}</div>
+            <a href="{{url_for('house_detail', house_id=house._id)}}" class="btn btn-success" style="text-align:center;">More info.</a>
             </div>
         </div>
 

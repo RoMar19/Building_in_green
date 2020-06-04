@@ -13,45 +13,45 @@
                 <select class="form-control categories-formfield" id="house_categories" name="house_categories">
                     <option value="" disabled selected>Choose your option</option>
                     <!-- Populates categories from DB green_buildings.categories -->
-                    {% for house_categories in categories %}
-                        <option value="{{categories.house_categories}}" class="left">{{categories.house_categories}}</option>
+                    {% for category in categories %}
+                        <option value="{{category.category_name}}" class="left">{{category.category_name | capitalize}}</option>
                     {% endfor %}
                 </select>
                 <div class="form-group">
                     <div class="controls">
                         <i class="fas fa-pencil-alt"></i><label class="form-field-description">Your Name</label>
-                            <input type="text" class="form-control" id="user_name" name="user_name" required data-validation-required-message="Please enter your name." value="{{houses.user_name}}" maxlength="100">
+                            <input type="text" class="form-control" id="user_name" name="user_name" required data-validation-required-message="Please enter your name." maxlength="100">
                     </div>
                 </div>      
                 <div class="form-group">
                     <div class="controls">
                     <i class="fas fa-pencil-alt"></i><label class="form-field-description">Green Building name</label>
-                        <input type="text" class="form-control" id="house_name" name="house_name" required data-validation-required-message="Please enter your house name." value="{{houses.house_name}}" maxlength="100">
+                        <input type="text" class="form-control" id="house_name" name="house_name" required data-validation-required-message="Please enter your house name." maxlength="100">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="controls">
                     <i class="fas fa-pencil-alt"></i><label class="form-field-description">Location</label>
-                        <input type="text" class="form-control" id="location" name="location" required data-validation-required-message="Please enter your location." value="{{houses.location}}" maxlength="100">
+                        <input type="text" class="form-control" id="location" name="location" required data-validation-required-message="Please enter your location." maxlength="100">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="controls">
                     <i class="fas fa-pencil-alt"></i><label class="form-field-description">Year of construction</label>
-                        <input type="text" class="form-control" id="year" name="year" required data-validation-required-message="Please enter the year of construction." value="{{houses.year}}" maxlength="4">
+                        <input type="text" class="form-control" id="year" name="year" required data-validation-required-message="Please enter the year of construction." maxlength="4">
                     </div>
                 </div>                      
                 <div class="form-group">
                     <div class="controls">
                     <i class="far fa-images"></i><label class="form-field-description">Add your picture</label>
-                        <input type="file" class="form-control" id="image" name="image" value="{{houses.image}}">
+                        <input type="file" class="form-control" id="image" name="image" >
                         <button type="button" class="btn btn-suscess">Upload</button>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="controls">
                     <i class="fas fa-info"></i><label class="form-field-description">Description</label>
-                    <textarea class="form-control" id="description" name="description" required data-validation-required-message="Please enter a short house description." maxlength="1000" value="{{houses.description}}"></textarea>
+                    <textarea class="form-control" id="description" name="description" required data-validation-required-message="Please enter a short house description." maxlength="1000" ></textarea>
                     </div>
                 </div>
             <div class="col-md-10">

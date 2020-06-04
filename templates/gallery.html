@@ -3,22 +3,19 @@
 <h1 style="margin-top:150px;">Visit the gallery</h1>
 <!-- Shows the gallery houses in the database base on category selection -->
 
-    {% for selected_gallery in houses %} 
-        {% if houses.category_name == select_category %}
-
+    {% for house in houses %} 
         <div class="responsive">
         <div class="gallery">
             <a>
-            <img src="{{ house_id.image }}" width="300" height="200">
+            <img src="{{ house.image }}" width="300" height="200">
             </a>
-            <div class="category">Category: {{ houses.category_name }}</div>
-            <div class="name">{{ houses.house_name }}</div>
-            <div class="desc">{{ houses.description }}</div>
-            <a href="{{url_for('house_detail')}}" class="btn btn-success" style="text-align:center;">More info.</a>
+            <div class="category">Category: {{ house.category_name }}</div>
+            <div class="name">{{ house.house_name }}</div>
+            <div class="desc">{{ house.description }}</div>
+            <a href="{{url_for('house_detail', house_id=house._id)}}" class="btn btn-success" style="text-align:center;">More info.</a>
             </div>
         </div>
-
-        {% endif %}        
+  
     {% endfor %}
    
 

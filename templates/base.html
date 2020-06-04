@@ -40,12 +40,10 @@
                         </a>
                         <a class="nav-link"></a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{url_for('all_gallery') }}">All</a>
-                        <a class="dropdown-item" href="{{url_for('gallery', select_category = 'wood') }}">Wood</a>
-                        <a class="dropdown-item" href="{{url_for('gallery', select_category = 'cob') }}">Cob</a>
-                        <a class="dropdown-item" href="{{url_for('gallery', select_category = 'stone') }}">Stone</a>
-                        <a class="dropdown-item" href="{{url_for('gallery', select_category = 'underground') }}">Underground</a>
-                        <a class="dropdown-item" href="{{url_for('gallery', select_category = 'upcycling') }}">Upcycling</a>
+                        <a class="dropdown-item" href="{{url_for('gallery', selected_category= 'all') }}">All</a>
+                        {% for category in categories %}
+                        <a class="dropdown-item" href="{{url_for('gallery', selected_category = category.category_name) }}">{{ category.category_name | capitalize }}</a>
+                        {% endfor %}
                     </div>                    
                     </li>
                     <li class="nav-item">
