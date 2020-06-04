@@ -7,8 +7,24 @@ from bson.objectid import ObjectId
 
 app = Flask(__name__)
 
-app.config["MONGODB_NAME"] = 'green_buildings'
-app.config["MONGODB_URI"] = 'mongodb+srv://RoMar19:CodeStudent@cluster0-oourq.mongodb.net/green_buildings?retryWrites=true&w=majority'
+app.config["MONGODB_NAME"] = "green_buildings"
+app.config["MONGODB_URI"] = os.getenv('MONGODB_URI', 'mongodb://localhost')
+
+# Connect to MongoDB function, password not visible
+
+MONGODB_URI = os.getenv("MONGODB_URI", "mongodb://localhost")
+MONGODB_NAME = "green_buildings"
+
+def mongo_connect(url):
+    try:
+        conn = pymongo.MongoClient(url)
+        print("Mongo is connected!")
+        return conn
+    except pymongo.errors.ConnectionFailure as e:
+        print("Could not connect to MongoDB: %s") % e
+
+conn = mongo_connect(MONGODB_URI)
+coll = conn[MONGODB_NAME]
 
 mongo = PyMongo(app)
 
