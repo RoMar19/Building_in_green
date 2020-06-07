@@ -4,12 +4,13 @@
 <!-- Shows the gallery houses in the database base on category selection -->
 
     {% for house in houses %} 
+
         <div class="responsive">
-        <div class="gallery">
+        <div class="gallery" style="width: 18rem;">
             <a>
             <img src="{{ house.image }}" width="300" height="200">
             </a>
-            <div class="category">Category: {{ house.category_name }}</div>
+            <div class="category">Main material used: {{ house.category_name }}</div>
             <div class="name">{{ house.house_name }}</div>
             <div class="desc">{{ house.description }}</div>
             <a href="{{url_for('house_detail', house_id=house._id)}}" class="btn btn-success" style="text-align:center;">More info.</a>
@@ -24,3 +25,7 @@
     <div>
     <a href="{{url_for('add_house')}}" class="btn btn-success">Add yours</a>  
     </div>
+
+
+
+    
