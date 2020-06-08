@@ -3,14 +3,14 @@
  <h1 style="margin-top:150px; padding-left:50px;">View more details</h1>
 
 <div class="row">
-    <div class="col-md-8 d-flex justify-content-center">
+    <div class="col-md-12 d-flex justify-content-center">
         <div class="card text-center">
             <div class="card-image">
             <a>
-            <img src="{{ house.image }}" width="100%" height="225">
+            <img class="img-fluid" src="{{ house.image }}" width="100%" height="auto">
             </a>
             </div>
-            <p>{{ house.category_name }}</p>
+            <p>{{ house.category_name | capitalize }}</p>
             <span class="card-title">{{ house.house_name }}</span>
         <div class="card-content">
         <p>By: {{ house.user_name }} {{ house.year }} - {{ house.location }}</p>
@@ -18,7 +18,7 @@
         <div class="card-action">
           <p>{{ house.description }}</p>
         </div>
-        <div class="buttons">
+        <div class="buttons" style="margin-bottom: 20px;">
         <a href="{{url_for('edit_house', house_id=house._id)}}" class="btn btn-success">Edit</a>
             <button type="button" class="btn btn-danger" onclick="confirm_del()">Delete</button>
         <a href="{{url_for('index')}}" class="btn btn-success">Home</a>
