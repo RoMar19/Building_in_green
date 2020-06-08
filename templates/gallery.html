@@ -1,19 +1,22 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1 style="margin-top:150px;">Visit the gallery</h1>
+<div class="container">
+    <div class="col-md-12 justify-content-center text-center">
+    <h1 style="margin-top:80px;">Visit the gallery</h1>
 <!-- Shows the gallery houses in the database base on category selection -->
+        <a href="{{url_for('add_house')}}" class="btn btn-success" style="margin-bottom: 50px;">Add yours</a>  
+    </div>
+</div>
 
-    {% for house in houses %} 
 
+    {% for house in houses %}
         <div class="responsive">
-        <div class="gallery" style="width: 18rem;">
-            <a>
-            <img src="{{ house.image }}" width="300" height="200">
-            </a>
-            <div class="category">Main material used: {{ house.category_name }}</div>
-            <div class="name">{{ house.house_name }}</div>
-            <div class="desc">{{ house.description }}</div>
-            <a href="{{url_for('house_detail', house_id=house._id)}}" class="btn btn-success" style="text-align:center;">More info.</a>
+            <div class="gallery">
+                <img src="{{ house.image }}">
+                <p class="category">Main material used:  {{ house.category_name | capitalize}}</p>
+                <div class="d-flex justify-content-between align-items-center">{{ house.house_name }}</div>
+                <div class="desc">{{ house.description }}</div>
+                <a href="{{url_for('house_detail', house_id=house._id)}}" class="btn btn-success" style="text-align:center;">More info.</a>
             </div>
         </div>
   
@@ -21,10 +24,8 @@
    
 
 {% endblock %}    
-
-    <div>
-    <a href="{{url_for('add_house')}}" class="btn btn-success">Add yours</a>  
-    </div>
+  
+    
 
 
 

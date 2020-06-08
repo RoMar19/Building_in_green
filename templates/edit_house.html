@@ -11,12 +11,12 @@
                 <div class="controls">
                     <i class="fas fa-align-center"></i><label class="form-field-description">Select Category</label>
                         <select class="form-control category-formfield" id="category_name" name="category_name">
-                            <!-- Populate categories from database categories -->
-                            {% for house_categories in categories %}
-                                {% if house_categories.category_name == houses.category_name %}
-                                <option value="{{house_categories.category_name}}" selected>{{house_categories.category_name}}</option>
+                            <!-- Populate categories from database green.buildings.categories -->
+                            {% for category in categories %}
+                                {% if categories.category_name == houses.category_name %}
+                                <option value="{{category.category_name}}" selected>{{category.category_name}}</option>
                                 {% else %}
-                                <option value="{{house_categories.category_name}}">{{house_categories.category_name}}</option>
+                                <option value="{{category.category_name}}">{{category.category_name}}</option>
                                 {% endif %}
                             {% endfor %}
                         </select>
@@ -61,7 +61,7 @@
                 <div>
                 <h5>Click "Update" to confirm</h5>           
                 <button type="submit" class="btn btn-success" onclick="alert_edit()" id="sendMessageButton">Update</button>
-                <a href="{{url_for('house_detail', house_id=house._id )}}" onclick="alert_no_edit()" class="btn btn-success">Cancel</a> 
+                <a href="{{url_for('house_detail', house_id=houses._id )}}" onclick="alert_no_edit()" class="btn btn-success">Cancel</a> 
                 </div>
             </form>
         </div>

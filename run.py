@@ -80,11 +80,11 @@ def insert_house():
 # Edit_house page, providing data from formfield values
 @app.route('/edit_house/<house_id>')
 def edit_house(house_id):
-    house_details = mongo.db.houses.find_one({"_id": ObjectId(house_id)})
-    house_categories = mongo.db.categories.find()
+    house = mongo.db.houses.find_one({"_id": ObjectId(house_id)})
+    categories = mongo.db.categories.find()
     return render_template("edit_house.html",
-                            houses=house_details,
-                            categories= house_categories,
+                            houses=house,
+                            categories= categories,
                             page_title="Edit")
 
 
