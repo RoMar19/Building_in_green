@@ -2,16 +2,21 @@ import os
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-
+# MONGO_URI import for workspace
+from os import path
+if path.exists("env.py"):
+    import env
 
 # Start application 
 
 app = Flask(__name__)
-
-app.config["MONGODB_NAME"] = 'green_buildings'
-app.config["MONGO_URI"] = 'mongodb+srv://RoMar19:CodeStudent@cluster0-oourq.mongodb.net/green_buildings?retryWrites=true&w=majority'
+app.config["MONGODB_NAME"] = os.environ.get("MONGODB_NAME")
+app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
+app.secret_key = os.getenv("SECRET_KEY")
 
 mongo = PyMongo(app)
+
+coll = mongo.db
 
 # Shows Home page
 
@@ -120,5 +125,5 @@ def delete_house(house_id):
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP", "0.0.0.0"),
-            port=int(os.environ.get("PORT", "5000")),
-            debug=True)
+            port=int(os.environ.get("PORT", 5000)),
+            debug=False)
