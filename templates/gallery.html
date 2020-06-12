@@ -10,6 +10,7 @@
 
 
     {% for house in houses %}
+        <div class="row">
             <div class="column">
                 <img class="img-fluid" src="{{ house.image }}">
                 <p class="category ">Main material used:  {{ house.category_name | capitalize}}</p>
@@ -17,6 +18,7 @@
                 <div class="description">{{ house.description }}</div>
                 <a href="{{url_for('house_detail', house_id=house._id)}}" class="btn btn-success" style="text-align:center;">More info.</a>
             </div>
+        <div>        
   
     {% endfor %}
    

@@ -1,7 +1,10 @@
+/* Navbar */
+
 .navbar,
 .dropdown-item {
     background-color: #343a40;
 }
+
 
 .navbar {
     border-bottom: 2px solid #fff;
@@ -45,6 +48,7 @@
     text-align: left;
 }
 
+*/* Gallery */
 
 .row {
   display: flex;
