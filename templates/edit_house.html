@@ -3,7 +3,7 @@
 
 <!--Form to edit a new house to the DB green_buildings -->
 
-    <h2 style="margin-top:100px; padding-left:50px;">Edit Green Building</h2>
+<h2 style="margin-top:100px; padding-left:50px;">Edit Green Building</h2>
     
 <div class="row">
     <div class="col-md-12 d-flex justify-content-center text-left">
@@ -11,16 +11,16 @@
             <i class="fas fa-align-center"></i>
             <label class="form-field-description">Select Category</label>
                 <select class="form-control category-formfield" id="category" name="category_name">
-                            <!-- Populate categories from database green.buildings.categories -->
-                            {% for category in categories %}
-                                {% if category.category_name == house.category_name %}
-                                <option value="{{category.category_name}}" selected>{{category.category_name}}</option>
-                                {% else %}
-                                <option value="{{category.category_name}}">{{category.category_name}}</option>
-                                {% endif %}
-                            {% endfor %}
-                        </select>
-                    </div>
+                        <option value="" disabled selected></option>
+                    <!-- Populate categories from database green.buildings.categories -->
+                    {% for category in categories %}
+                        {% if category.category_name == house.category_name %}
+                        <option value="{{category.category_name}}">{{category.category_name}}</option>
+                        {% else %}
+                        <option value="{{category.category_name}}">{{category.category_name}}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
                 <div class="form-group">
                     <div class="controls">
                         <i class="fas fa-pencil-alt"></i><label class="form-field-description">Your Name</label>
@@ -56,16 +56,16 @@
                     <div class="controls">
                     <i class="fas fa-info"></i><label class="form-field-description">Description</label>
                     <textarea class="form-control" id="description" name="description" required data-validation-required-message="Please enter a short house description." maxlength="1000" value="{{house.description}}"></textarea>
-                    </div>
                 </div>
-                <div>
+                </div>
+                <div class="col-md-10">
                 <h5>Click "Update" to confirm</h5>           
-                <button type="submit" class="btn btn-success" onclick="alert_edit()" id="sendMessageButton">Update</button>
-                <a href="{{url_for('house_detail', house_id=house._id )}}" onclick="alert_no_edit()" class="btn btn-success">Cancel</a> 
+                    <button type="submit" class="btn btn-success" onclick="alert_edit()" id="sendMessageButton">Update</button>
+                    <a href="{{url_for('house_detail', house_id=house._id )}}" onclick="alert_no_edit()" class="btn btn-success">Cancel</a> 
                 </div>
-            </form>
-        </div>
+        </form>
     </div>
+</div>
 
 <!-- Alert prompts for editing or canceling edit process -->
 <script>
