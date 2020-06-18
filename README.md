@@ -50,7 +50,7 @@ It is an intuitive and easy to use application where users can:
 ## Mockups
 Balsamic initial design idea.
 
-![Building in Green Wireframes](/Wireframes/WireframesBuildinginGreen.png)
+![Building in Green Wireframes](/static/img/WireframesBuildinginGreen.png)
 
 ## Features
 ### Navigation bar and footer 
