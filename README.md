@@ -1,14 +1,14 @@
 # Building in Green
 ## Data Centric Development Project
 
-### This is a community platafform for Green Builders enthusiast. The application displays 4 different pages: 
+### This is a community platafform for Green Builders enthusiast. The application displays 5 different pages: 
 * Welcome page where the basic principies of a sustainable building are defined.
 * Green Builders Comunity Gallery page where members of the comunity can watch all the different Green Buildings from other members. 
 * Green Bhuilding Details page to display the details of the selected Green Building.
 * Add your own page allow user members to add their own Green Building to the Gallery of the Comunity. 
 * Edit Green Building page witch allow the members to edit or delete a Green Building of the Comnunity.
 
-[Building in green!](https://dashboard.heroku.com/apps/bulding-in-green)
+Live demo: [Building in green](https://dashboard.heroku.com/apps/bulding-in-green)
 
 The Website is developed by a Green Builder enthhuist for other sustainable and green contructors enthusiasts.
 The pourpose of this project is to have a showroom (database) of different sustainable and eco friendly construction in a natural environment. To share ideas
@@ -50,11 +50,11 @@ It is an intuitive and easy to use application where users can:
 ## Mockups
 
 Balsamic initial design idea.
-Add mockaps pics.
+
+![Building in Green Wireframes](/Wireframes/WireframesBuildinginGreen.png)
+
 
 ## Features
-
-
 ### Navigation bar and footer 
 We will find in all pages a Navbar with brand name (Building in Green), Home page, Gallery page where all the houses in the data 
 base are displayed or selecting by categories (Wood, Cob, Stone or Upcycling) displayed in a Dropdown.
@@ -147,6 +147,8 @@ The website as built and developed using **GitPod** as IDE.
 
 **W3C's CSS Validator** were used to validate the websites CSS code.
 
+**Responsinator** used to check responsiveness.
+
 ## Deployment
 GitPod was used as IDE to develop this application. Throug out the development, the project was 
 commited to the git and continuously pushed to Heroku connected to GitHub. 
@@ -167,16 +169,34 @@ Steps to deploy the application on Heroku:
 
 ## Testing
 
-Pages work as expected in a responsive manner. Only afunction to clear the selected categories
-in the dropdowns are yet to be implemented. Even if the user clear the filters and are beeing displayed with all projects the previously selected options in the dropdown remains unchanged. The selected options are currently being stored locally with JavaScript code, thus more JavaScript to clear the dropdowns must be implemented.
+**W3C's HTLM Validator** were used to validate the websites HTML code.
+
+**W3C's CSS Validator** were used to validate the websites CSS code.
+
+**Responsinator** used to check responsiveness.
+
+Pages work as expected in a responsive manner. All select options, forms and buttons tested. 
+Only a function to clear the selected categories in the dropdown is yet to be implemented. 
+When the user clear the filters and are beeing displayed with all options the previously 
+selected options in the dropdown remains unchanged. Clear the dropdowns fintcion must be implemented in future.
 
 ## Credits
 
+**Content**
+All of the text content on the website was written by me.
+
 **Media**
-Images used in the webpage was collected from unsplash.com
+Images used in the webpage were collected from unsplash.com.
+Data on MongoDB non-real. 
 
 
 ## Acknowledgements
+
+Thank you goes to all Code Institute Team od Tutors and my Mentor 
+for his support, patience and guidance throughout this project.
+
+## Disclaimer
+The content of this website is for educational purposes only.
 
 
 
