@@ -56,17 +56,26 @@
                 </div>
             <div class="col-md-10">
             <div class="btn-group" role="group" style="padding-left:260px;">
-                <button type="submit" class="btn btn-suscess" id="sendMessageButton">Insert</button>
-                <button type="button" class="btn btn-suscess" href="{{url_for('index')}}">Cancel</button>
+                <button type="submit" class="btn btn-success" onclick="alert_add()" id="sendMessageButton">Insert</button>
+                    <a href="{{url_for('house_detail', house_id=house._id )}}" onclick="alert_no_add()" class="btn btn-success">Cancel</a> 
             </div>
+            <h5 href="{{url_for('gallery')}}">To view your Green Building added to the Comunity visit the Gallery....at the end</h5>
             </div>
         </form>
     </div>
 </div>
 
+<!-- Alert prompts for adding or canceling add process -->
 <script>
-    $(document).ready(function(){
-        $('select').formSelect();
+function alert_add(){
+        alert("Thank you! The building has been added successfully.");
+    }
+function alert_no_add(){
+        alert("Your building has not been added.");
+    }
+
+$(document).ready(function(){
+    $('select').formSelect();
     });
 </script>
 
