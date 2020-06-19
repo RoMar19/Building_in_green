@@ -26,7 +26,7 @@ def index():
 
 
 
-# Shows all houses in the gallery(DB) by category selection
+# Shows all houses in the gallery(DB) by category selection. (READ)
 @app.route('/gallery/<selected_category>')
 def gallery(selected_category):
     if selected_category == "all":
@@ -40,7 +40,7 @@ def gallery(selected_category):
                           houses=houses,
                           page_title=selected_category.capitalize() + "Green Buildings")
 
-# Shows details of the selected house with butons to Edit or Delete 
+# Shows details of the selected house with butons to Edit or Delete. (EDIT/DELETE)
 @app.route('/house_detail/<house_id>')
 def house_detail(house_id):
     house = mongo.db.houses.find_one({"_id": ObjectId(house_id)})
@@ -49,7 +49,7 @@ def house_detail(house_id):
                           page_title="Green building Info.")                          
                      
 
-# Shows form page to add new houses of the users to the Gallery of the Comunity(DB) 
+# Shows form page to add new houses of the users to the Gallery of the Comunity(DB). (READ)
 @app.route('/add_house')
 def add_house():
     _categories = mongo.db.categories.find()
@@ -58,7 +58,7 @@ def add_house():
                         categories = category_list,
                         page_title="Add Your Own Green Building")
 
-# Inserts new houses to the DB after fill in Form add_house and press button
+# Inserts/add new houses to the DB after fill in Form add_house. (CREATE)
 @app.route('/insert_house', methods=["POST"])
 def insert_house():
     houses = mongo.db.houses
@@ -82,7 +82,7 @@ def insert_house():
 
 
 
-# Edit_house page, providing data from formfield values
+# Edit_house page, providing data from formfield values. (EDIT)
 @app.route('/edit_house/<house_id>')
 def edit_house(house_id):
     the_house = mongo.db.houses.find_one({"_id": ObjectId(house_id)})
@@ -93,7 +93,7 @@ def edit_house(house_id):
                             page_title="Edit")
 
 
-# Updates house info. in the DB after changes of the user
+# Updates house info. in the DB after changes of the user. (UPDATE)
 @app.route('/update_house/<house_id>', methods=["POST"])
 def update_house(house_id):
     houses = mongo.db.houses
@@ -116,7 +116,7 @@ def update_house(house_id):
                             house_id=house_id))
 
 
-# Deletes selected house from DB with alert
+# Deletes selected house from DB with alert. (DELETE)
 @app.route('/delete_house/<house_id>')
 def delete_house(house_id):
     mongo.db.houses.remove({"_id": ObjectId(house_id)})
