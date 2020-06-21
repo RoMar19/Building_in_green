@@ -40,7 +40,7 @@ def gallery(selected_category):
                           houses=houses,
                           page_title=selected_category.capitalize() + "Green Buildings")
 
-# Shows details of the selected house with butons to Edit or Delete. (EDIT/DELETE)
+# Shows details of the selected house the Gallery.
 @app.route('/house_detail/<house_id>')
 def house_detail(house_id):
     house = mongo.db.houses.find_one({"_id": ObjectId(house_id)})
@@ -49,13 +49,12 @@ def house_detail(house_id):
                           page_title="Green building Info.")                          
                      
 
-# Shows form page to add new houses of the users to the Gallery of the Comunity(DB). (READ)
+# Shows form page to add new houses of the users to the Gallery of the Comunity(DB).
 @app.route('/add_house')
 def add_house():
-    _categories = mongo.db.categories.find()
-    category_list = [category for category in _categories]
+    categories = mongo.db.categories.find()
     return render_template("add_house.html", 
-                        categories = category_list,
+                        categories = categories,
                         page_title="Add Your Own Green Building")
 
 # Inserts/add new houses to the DB after fill in Form add_house. (CREATE)
@@ -69,7 +68,7 @@ def insert_house():
     {
     "category_name": form_data["category_name"],
     "user_name": form_data["user_name"],
-     "location": form_data["location"],
+    "location": form_data["location"],
     "year": form_data["description"],
     "house_name": form_data["house_name"],
     "image": form_data["image"],

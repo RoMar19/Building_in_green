@@ -20,23 +20,49 @@
 
 .dropdown-menu {
     padding: 0px;
-    border: #b5b5b5; 
+    border:#828282; 
     display: none;
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    top: 70px;
+    margin-top: 0px;
 }
 
 .dropdown-menu a {
-    background-color: #343a40;
-    color: #fff;
+    background-color: #fff;
+    color: #343a40;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
     text-align: left;
 }
+
+.navbar-collapse {
+    position: absolute;
+    top: 54px;
+    left: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    width: 100%;
+    transition: all 0.4s ease;
+    display: block;
+}
+.navbar-collapse.collapsing {
+    height: auto !important;
+    margin-left: 50%;
+    left: 50%;
+    transition: all 0.2s ease;
+}
+.navbar-collapse.show {
+    left: 0;
+}
+
+    
+
 
 
 /* Gallery */

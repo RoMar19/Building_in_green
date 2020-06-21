@@ -13,9 +13,9 @@
                 <label class="form-field-description">Select Category</label>
                 <select class="form-control categories-formfield" id="category" name="category_name">
                     <option value="" disabled selected></option>
-                    <!-- Populates categories from DB green_buildings -->
+                    <!-- Populates categories from DB green_buildings.categories -->
                     {% for category in categories %}
-                        <option value="{{category.category_name}}" class="left">{{category.category_name | capitalize}}</option>
+                        <option value="{{category.category_name}}">{{category.category_name | capitalize}}</option>
                     {% endfor %}
                 </select>
                 <div class="form-group" style="margin-bottom:10px;">
@@ -41,11 +41,11 @@
                     <i class="material-icons">calendar_today</i><label class="form-field-description">Year of construction</label>
                         <input type="text" class="form-control" id="year" name="year" required data-validation-required-message="Please enter the year of construction." maxlength="4">
                     </div>
-                </div>                      
+                </div>                                         
                 <div class="form-group">
                     <div class="controls">
                     <i class="material-icons">add_photo_alternate</i><label class="form-field-description">Add link to your picture</label>
-                        <input type="link" class="form-control" id="image" name="image" >
+                        <input class="form-control" id="image_link" name="image_link" type="url" pattern="https://.*" required data-validation-required-message="Please enter your link" placeholder="Paste the link to your image here">
                     </div>
                 </div>
                 <div class="form-group">
@@ -56,13 +56,12 @@
                 </div>
             <div class="col-md-10">
             <div class="btn-group" role="group" style="padding-left:260px;">
-                <button type="submit" class="btn btn-success" onclick="alert_add()" id="sendMessageButton">Insert</button>
-                    <a href="{{url_for('house_detail', house_id=house._id )}}" onclick="alert_no_add()" class="btn btn-success">Cancel</a> 
+                <button type="submit" class="btn btn-success" onclick="alert_add()" id="sendMessageButton">Submit</button>
+                    <a href="{{url_for('house_detail', house_id=house._id)}}" onclick="alert_no_add()" class="btn btn-success">Cancel</a> 
             </div>
             <h5 href="{{url_for('gallery')}}">To view your Green Building added to the Comunity visit the Gallery....at the end</h5>
             </div>
         </form>
-    </div>
 </div>
 
 <!-- Alert prompts for adding or canceling add process -->

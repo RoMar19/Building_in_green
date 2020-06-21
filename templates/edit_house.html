@@ -12,51 +12,50 @@
             <label class="form-field-description">Select Category</label>
                 <select class="form-control category-formfield" id="category" name="category_name">
                         <option value="" disabled selected></option>
-                    <!-- Populate categories from database green.buildings.categories -->
+                    <!-- Populates categories from database green.buildings.categories -->
                     {% for category in categories %}
-                        {% if category.category_name == house.category_name %}
-                        <option value="{{category.category_name}}">{{category.category_name}}</option>
+                        {% if category.category_name == houses.category_name %}
+                        <option value="{{category.category_name}}">{{category.category_name | capitalize}}</option>
                         {% else %}
-                        <option value="{{category.category_name}}">{{category.category_name}}</option>
+                        <option value="{{category.category_name}}">{{category.category_name | capitalize}}</option>
                         {% endif %}
                     {% endfor %}
                 </select>
-                <div class="form-group">
+                <div class="form-group" style="margin-bottom:10px;">
                     <div class="controls">
-                        <i class="fas fa-pencil-alt"></i><label class="form-field-description">Your Name</label>
-                            <input type="text" class="form-control" id="user_name" name="user_name" required data-validation-required-message="Please enter your name." value="{{house.user_name}}" maxlength="100">
+                        <i class="material-icons">face</i><label class="form-field-description">Your Name</label>
+                            <input type="text" class="form-control" id="user_name" name="user_name" required data-validation-required-message="Please enter your name." value="{{house.user_name}}" maxlength="100" >
                     </div>
                 </div>      
                 <div class="form-group">
                     <div class="controls">
-                    <i class="fas fa-pencil-alt"></i><label class="form-field-description">Green Building name</label>
+                    <i class="material-icons">house</i><label class="form-field-description">Green Building name</label>
                         <input type="text" class="form-control" id="house_name" name="house_name" required data-validation-required-message="Please enter your house name." value="{{house.house_name}}" maxlength="100">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="controls">
-                    <i class="fas fa-pencil-alt"></i><label class="form-field-description">Location</label>
+                    <i class="material-icons">room</i><label class="form-field-description">Location</label>
                         <input type="text" class="form-control" id="location" name="location" required data-validation-required-message="Please enter your location." value="{{house.location}}" maxlength="100">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="controls">
-                    <i class="fas fa-pencil-alt"></i><label class="form-field-description">Year of construction</label>
+                    <i class="material-icons">calendar_today</i><label class="form-field-description">Year of construction</label>
                         <input type="text" class="form-control" id="year" name="year" required data-validation-required-message="Please enter the year of construction." value="{{house.year}}" maxlength="4">
                     </div>
-                </div>                      
+                </div>                                         
                 <div class="form-group">
                     <div class="controls">
-                    <i class="far fa-images"></i><label class="form-field-description">Add your picture</label>
-                        <input type="file" class="form-control" id="image" name="image" value="{{house.image}}">
-                        <button type="button" class="btn btn-suscess">Upload</button>
+                    <i class="material-icons">add_photo_alternate</i><label class="form-field-description">Add link to your picture</label>
+                        <input class="form-control" id="image_link" name="image_link" type="url" pattern="https://.*" required data-validation-required-message="Please enter your link" placeholder="Paste the link to your image here" value="{{house.image}}">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="controls">
-                    <i class="fas fa-info"></i><label class="form-field-description">Description</label>
+                    <i class="material-icons">reorder</i><label class="form-field-description">Description</label>
                     <textarea class="form-control" id="description" name="description" required data-validation-required-message="Please enter a short house description." maxlength="1000" value="{{house.description}}"></textarea>
-                </div>
+                    </div>
                 </div>
                 <div class="col-md-10">
                 <h5>Click "Update" to confirm</h5>           
