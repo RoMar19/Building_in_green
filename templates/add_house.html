@@ -7,7 +7,7 @@
     <h4 style="padding-left:50px;">Add your own green home and show it to the world!</h4> 
 
 <div class="row">
-        <div class="col-md-12 d-flex justify-content-center text-left">
+        <div class="col-md-12 mb-4 d-flex justify-content-center text-left">
             <form action="{{url_for('insert_house')}}" method="POST" name="add_house" id="add_house">
                 <i class="material-icons">home</i>
                 <label class="form-field-description">Select Category</label>
@@ -15,7 +15,7 @@
                     <option value="" disabled selected></option>
                     <!-- Populates categories from DB green_buildings.categories -->
                     {% for category in categories %}
-                        <option value="{{category.category_name}}">{{category.category_name | capitalize}}</option>
+                        <option value="{{category.category_name}}">{{category.category_name | capitalize}} </option>
                     {% endfor %}
                 </select>
                 <div class="form-group" style="margin-bottom:10px;">
@@ -57,7 +57,7 @@
             <div class="col-md-10">
             <div class="btn-group" role="group" style="padding-left:260px;">
                 <button type="submit" class="btn btn-success" onclick="alert_add()" id="sendMessageButton">Submit</button>
-                    <a href="{{url_for('house_detail', house_id=house._id)}}" onclick="alert_no_add()" class="btn btn-success">Cancel</a> 
+                    <a href="{{url_for('index')}}" onclick="alert_no_add()" class="btn btn-success">Cancel</a> 
             </div>
             <h5 href="{{url_for('gallery')}}">To view your Green Building added to the Comunity visit the Gallery....at the end</h5>
             </div>
@@ -66,16 +66,16 @@
 
 <!-- Alert prompts for adding or canceling add process -->
 <script>
+$(document).ready(function(){
+    $('select').formSelect();
+    });
+    
 function alert_add(){
         alert("Thank you! The building has been added successfully.");
     }
 function alert_no_add(){
         alert("Your building has not been added.");
     }
-
-$(document).ready(function(){
-    $('select').formSelect();
-    });
 </script>
 
 

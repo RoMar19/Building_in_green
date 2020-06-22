@@ -52,10 +52,10 @@ def house_detail(house_id):
 # Shows form page to add new houses of the users to the Gallery of the Comunity(DB).
 @app.route('/add_house')
 def add_house():
-    categories = mongo.db.categories.find()
-    return render_template("add_house.html", 
-                        categories = categories,
-                        page_title="Add Your Own Green Building")
+    all_categories = mongo.db.categories.find()
+    return render_template("add_house.html",
+                            categories=all_categories,
+                            page_title="Add Your Own Green Building")
 
 # Inserts/add new houses to the DB after fill in Form add_house. (CREATE)
 @app.route('/insert_house', methods=["POST"])
@@ -84,12 +84,12 @@ def insert_house():
 # Edit_house page, providing data from formfield values. (EDIT)
 @app.route('/edit_house/<house_id>')
 def edit_house(house_id):
-    the_house = mongo.db.houses.find_one({"_id": ObjectId(house_id)})
-    all_categories = mongo.db.categories.find()
+    house = mongo.db.houses.find_one({"_id": ObjectId(house_id)})
+    categories = mongo.db.categories.find()
     return render_template("edit_house.html",
-                            house=the_house,
-                            categories=all_categories,
-                            page_title="Edit")
+                            house=house,
+                            categories=categories,
+                            page_title="Edit Green Building")
 
 
 # Updates house info. in the DB after changes of the user. (UPDATE)

@@ -119,7 +119,7 @@ In this case we must fill in also the required fields and at the end we will fin
   *To view your Green Building added to the Community visit the Gallery*
 * Cancel: On click it will cancel the operation and nothing will be added to the data base. 
   Alert with the next message shown: 
-  *Your building has not added.* After clicking OK, open View More Details page.
+  *Your building has not added.* After clicking OK, open Home page.
 
 Visiting Green Builders Community Gallery, we will see that the new house is displayed at the end of the list. 
 Or if you select a category it will be displayed at the end of the list under that category.

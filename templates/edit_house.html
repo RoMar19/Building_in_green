@@ -6,16 +6,16 @@
 <h2 style="margin-top:100px; padding-left:50px;">Edit Green Building</h2>
     
 <div class="row">
-    <div class="col-md-12 d-flex justify-content-center text-left">
+    <div class="col-md-12 mb-4 d-flex justify-content-center text-left">
         <form action="{{url_for('update_house', house_id=house.id)}}" method="POST" name="update_house" id="update_house">
             <i class="fas fa-align-center"></i>
             <label class="form-field-description">Select Category</label>
-                <select class="form-control category-formfield" id="category" name="category_name">
+                <select class="form-control category-formfield" id="category_name" name="category_name">
                         <option value="" disabled selected></option>
                     <!-- Populates categories from database green.buildings.categories -->
                     {% for category in categories %}
-                        {% if category.category_name == houses.category_name %}
-                        <option value="{{category.category_name}}">{{category.category_name | capitalize}}</option>
+                        {% if categories.category_name == house.category_name %}
+                        <option value="{{category.category_name}}" selected>{{category.category_name | capitalize}}</option>
                         {% else %}
                         <option value="{{category.category_name}}">{{category.category_name | capitalize}}</option>
                         {% endif %}
@@ -54,7 +54,7 @@
                 <div class="form-group">
                     <div class="controls">
                     <i class="material-icons">reorder</i><label class="form-field-description">Description</label>
-                    <textarea class="form-control" id="description" name="description" required data-validation-required-message="Please enter a short house description." maxlength="1000" value="{{house.description}}"></textarea>
+                    <textarea class="form-control" id="description" name="description" required data-validation-required-message="Please enter a short house description." maxlength="1000">{{house.description}}</textarea>
                     </div>
                 </div>
                 <div class="col-md-10">
@@ -67,17 +67,13 @@
 </div>
 
 <!-- Alert prompts for editing or canceling edit process -->
-<script>
+<script>    
 function alert_edit(){
         alert("Thank you! The building has been updated successfully.");
     }
 function alert_no_edit(){
         alert("Your building has not been edited.");
     }
-
-$(document).ready(function(){
-    $('select').formSelect();
-    });
 </script>
 
 {% endblock %}
