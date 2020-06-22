@@ -15,8 +15,8 @@
   			<div class="column">
     			<div class="content">
       				<img src="{{ house.image }}" style="width:100%">
-      				<h3 class="category ">Main material used:  {{ house.category_name | capitalize</h3>
-      				<h4 class="house_name ">{{ house.house_name }}:</h4>
+      				<h3 class="category_name">Main material used:  {{ house.category_name | capitalize}}</h3>
+      				<h4 class="house_name">{{ house.house_name }}:</h4>
       				<p class="description">{{ house.description }}</p>
       				<a href="{{url_for('house_detail', house_id=house._id)}}" class="btn btn-success" 					style="text-align:center;">More info.</a>
     			</div>

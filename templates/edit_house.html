@@ -14,7 +14,7 @@
                         <option value="" disabled selected></option>
                     <!-- Populates categories from database green.buildings.categories -->
                     {% for category in categories %}
-                        {% if categories.category_name == house.category_name %}
+                        {% if categories.category_name == houses.category_name %}
                         <option value="{{category.category_name}}" selected>{{category.category_name | capitalize}}</option>
                         {% else %}
                         <option value="{{category.category_name}}">{{category.category_name | capitalize}}</option>

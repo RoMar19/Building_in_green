@@ -30,13 +30,12 @@ def index():
 @app.route('/gallery/<selected_category>')
 def gallery(selected_category):
     if selected_category == "all":
-
         houses = mongo.db.houses.find()
     else: 
         houses = mongo.db.houses.find(
             { "category_name": selected_category }
         )
-    return render_template("gallery.html", 
+    return render_template("gallery.html",
                           houses=houses,
                           page_title=selected_category.capitalize() + "Green Buildings")
 
@@ -87,7 +86,7 @@ def edit_house(house_id):
     house = mongo.db.houses.find_one({"_id": ObjectId(house_id)})
     categories = mongo.db.categories.find()
     return render_template("edit_house.html",
-                            house=house,
+                            houses=house,
                             categories=categories,
                             page_title="Edit Green Building")
 
@@ -124,5 +123,5 @@ def delete_house(house_id):
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP", "0.0.0.0"),
-            port=int(os.environ.get("PORT", 5000)),
+            port=int(os.environ.get("PORT", 5858)),
             debug=False)

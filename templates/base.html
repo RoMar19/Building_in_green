@@ -33,9 +33,9 @@
             </button>
         <div class="dropdown-content">
             <a class="dropdown-item" href="{{url_for('gallery', selected_category= 'all') }}">All</a>
-            {% for category in categories %}
-                <a class="dropdown-item" href="{{url_for('gallery', selected_category = category.category_name) }}">{{ category.category_name | capitalize }}</a>
-            {% endfor %}
+                        {% for category in categories %}
+                        <a class="dropdown-item" href="{{url_for('gallery', selected_category = category.category_name) }}">{{ category.category_name | capitalize }}</a>
+                        {% endfor %}
         </div> 
     </div>
         <a class="nav-link" href="{{ url_for('add_house') }}">Add your Green Building</a>
@@ -43,7 +43,7 @@
 </div>
 
   
-    {% block content %} {% endblock %}
+{% block content %} {% endblock %}
   
  
 <!-- Footer -->
@@ -66,12 +66,16 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script>
+$(document).ready(function(){
+    $('select').formSelect();
+});
+
 function myFunction() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";}
-  else {
-    x.className = "topnav";
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
   }
 }
 </script>
