@@ -21,6 +21,7 @@ coll = mongo.db
 
 @app.route('/')
 def index():
+    print(mongo.db.houses.find().count())
     categories = mongo.db.categories.find()
     return render_template("index.html", page_title="Home", categories=categories)
 
