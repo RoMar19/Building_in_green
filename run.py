@@ -51,7 +51,7 @@ def house_detail(house_id):
 # Shows form page to add new houses of the users to the Gallery of the Comunity(DB).
 @app.route('/add_house')
 def add_house():
-    all_categories = mongo.db.categories.find()
+    all_categories = list(mongo.db.categories.find())
     return render_template("add_house.html",
                             categories=all_categories,
                             page_title="Add Your Own Green Building")
@@ -62,10 +62,10 @@ def insert_house():
     houses = mongo.db.houses
 
     form_data = request.form.to_dict()
-
+    print(form_data)
     house_details = houses.insert_one(
     {
-    "category_name": form_data["category_name"],
+    "category": form_data["category_name"],
     "user_name": form_data["user_name"],
     "location": form_data["location"],
     "year": form_data["description"],

@@ -1,6 +1,8 @@
 {% extends "base.html" %} {% block content %}
 
-
+{% for category in categories %}
+{{category}} aaa
+{% endfor %}
 <!--Form to add a new house to the DB green_buildings -->
 <div class="col s12 text-center">
     <h2 style="margin-top:100px; padding-left:50px;">Join the Green Builders Comunity</h2>
