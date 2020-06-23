@@ -21,9 +21,9 @@ coll = mongo.db
 
 @app.route('/')
 def index():
-    print(mongo.db.houses.find().count())
     categories = mongo.db.categories.find()
     return render_template("index.html", page_title="Home", categories=categories)
+    
 
 
 
@@ -101,7 +101,7 @@ def update_house(house_id):
 
     houses.update({"_id": ObjectId(house_id)},
                 {
-                "category_name": form_data["category_name"],
+                "category": form_data["category_name"],
                 "user_name": form_data["user_name"],
                 "location": form_data["location"],
                 "year": form_data["description"],
