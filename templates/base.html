@@ -23,25 +23,26 @@
 </head>
 <body>
  <!-- Navigation bar -->
-
-<div class="topnav" id="myTopnav">
-    <a class="active" href="{{ url_for('index') }}"><strong>Building in Green<strong></a>
-    <a class="nav-link" href="{{ url_for('index') }}">Home</a>
-    <div class="dropdown">
-            <button class="dropbtn">Green Builders Community Gallery 
-            <i class="fa fa-caret-down"></i>
-            </button>
-        <div class="dropdown-content">
-            <a class="dropdown-item" href="{{url_for('gallery', selected_category= 'all') }}">All</a>
-                        {% for category in categories %}
-                        <a class="dropdown-item" href="{{url_for('gallery', selected_category = category.category_name) }}">{{ category.category_name | capitalize }}</a>
-                        {% endfor %}
-        </div> 
+<nav>
+    <div class="nav-wrapper">
+            <a href="{{ url_for('index') }}" class="brand-logo">Building in Green</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('add_house') }}">Add your Green Building</a></li>
+            <!-- Dropdown Trigger -->
+                <li><a class="dropdown-trigger" href="{{url_for('gallery'}}" data-target="dropdown1">Green Buildings Community Gallery<i class="material-icons right">arrow_drop_down</i></a></li>
+            </ul>
+            <!-- Dropdown Structure -->
+            <ul id="dropdown1" class="sidenav" id="mobile-demo">
+                <li><a href="{{url_for('gallery', selected_category= 'all') }}">All</a></li>
+                <li class="divider"></li>
+                {% for category in categories %}
+                <li><a href="{{url_for('gallery', selected_category = category.category_name) }}">{{ category.category_name | capitalize }}</a>
+                {% endfor %}
+            </ul>
     </div>
-        <a class="nav-link" href="{{ url_for('add_house') }}">Add your Green Building</a>
-        <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()"><span>&#9776;</span></a>
-</div>
-
+</nav>
   
 {% block content %} {% endblock %}
   
@@ -67,17 +68,11 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script>
 $(document).ready(function(){
+    $('.sidenav').sidenav();
+    $('.dropdown-trigger').dropdown();
     $('select').formSelect();
 });
 
-function myFunction() {
-    var x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-      x.className += " responsive";
-    } else {
-      x.className = "topnav";
-  }
-}
 </script>
 </body>
 </html>
