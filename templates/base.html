@@ -2,14 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     
-    <!-- Custom fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+   
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}">
     <link href="{{ url_for('static', filename='vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='vendor/simple-line-icons/css/simple-line-icons.css') }}" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
@@ -22,24 +24,23 @@
     <title>Building in Green</title>
 </head>
 <body>
- <!-- Navigation bar -->
-<nav>
-    <div class="nav-wrapper">
-            <a href="{{ url_for('index') }}" class="brand-logo">Building in Green</a>
-            <a href="#" data-target="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="{{ url_for('index') }}">Home</a></li>
-                <li><a href="{{ url_for('add_house') }}">Add your Green Building</a></li>
-            <!-- Dropdown Trigger -->
-                <li><a class="dropdown-trigger" href="#" data-target="dropdown1">Green Buildings Community Gallery<i class="material-icons right">arrow_drop_down</i></a></li>
-            </ul>
-            <!-- Dropdown Structure -->
-            <ul id="dropdown1" class="sideNav" id="mobile-demo">
+<!-- Navigation bar -->
+<!-- Dropdown Structure -->
+            <ul id="dropdown1" class="dropdown-content">
                 <li><a href="{{url_for('gallery', selected_category= 'all') }}">All</a></li>
                 <li class="divider"></li>
                 {% for category in categories %}
                 <li><a href="{{url_for('gallery', selected_category = category.category_name) }}">{{ category.category_name | capitalize }}</a>
                 {% endfor %}
+            </ul>
+<nav>
+    <div class="nav-wrapper lighten-2">
+            <a href="{{ url_for('index') }}" class="brand-logo">Building in Green</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('add_house') }}">Add your Green Building</a></li>
+            <!-- Dropdown Trigger -->
+                <li><a class="dropdown-trigger" href="#" data-target="dropdown1">Green Buildings Community Gallery<i class="material-icons right">arrow_drop_down</i></a></li>
             </ul>
     </div>
 </nav>
@@ -63,16 +64,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>       
 <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>  
 <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
 <script>
 $(document).ready(function(){
-    $(".button-collapse").sideNav();
-    $('.dropdown-trigger').dropdown();
-    $('select').formSelect();
+    $(".dropdown-trigger").dropdown();
 });
-
 </script>
 </body>
 </html>
