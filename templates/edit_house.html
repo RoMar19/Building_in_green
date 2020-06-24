@@ -4,7 +4,8 @@
 <!--Form to edit a house in the DB green_buildings -->
 
 <h2 style="margin-top:100px; padding-left:50px;">Edit Green Building</h2>
-    
+
+<div class="container">  
 <div class="row">
     <form action="{{url_for('update_house', house_id=house._id)}}" method="POST" name="update_house" id="update_house">
         <div class="row">
@@ -19,6 +20,7 @@
       	                <option value="{{category.category_name}}" selected >{{category.category_name | capitalize}}</option>
                         {% else %}
                         <option value="{{category.category_name}}">{{category.category_name | capitalize}}</option>
+                        {% endif %}
                     {% endfor %}
                 </select>
             </div>
@@ -72,6 +74,7 @@
                     <a href="{{url_for('house_detail', house_id=house._id )}}" onclick="alert_no_edit()" class="btn btn-success">Cancel</a> 
         </div>
     </form>
+</div>
 </div>
 
 
