@@ -2,6 +2,8 @@
 
  <h1 style="margin-top:150px; padding-left:50px;">View more details</h1>
 
+<!-- Shows the details of the selected house -->
+
 <div class="row">
     <div class="col-md-12 d-flex justify-content-center">
         <div class="card text-center">
@@ -20,7 +22,7 @@
         </div>
         <div class="buttons" style="margin-bottom: 20px;">
         <a href="{{url_for('edit_house', house_id=house._id)}}" class="btn btn-success">Edit</a>
-            <button type="button" class="btn btn-danger" onclick="confirm_del()">Delete</button>
+        <button type="button" class="btn btn-danger" onclick="confirm_del()">Delete</button>
         </div>
         </div>
     </div>

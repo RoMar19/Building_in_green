@@ -1,72 +1,82 @@
 {% extends "base.html" %} {% block content %}
 
 
-<!--Form to edit a new house to the DB green_buildings -->
+<!--Form to edit a house in the DB green_buildings -->
 
 <h2 style="margin-top:100px; padding-left:50px;">Edit Green Building</h2>
     
 <div class="row">
-    <div class="col-md-12 mb-4 d-flex justify-content-center text-left">
-        <form action="{{url_for('update_house', house_id=house.id)}}" method="POST" name="update_house" id="update_house">
-            <i class="fas fa-align-center"></i>
-            <label class="form-field-description">Select Category</label>
-                <select class="form-control category-formfield" id="category" name="category_name">
-                        <option value="" disabled selected></option>
-                    <!-- Populates categories from database green.buildings.categories -->
+    <form action="{{url_for('update_house', house_id=house._id)}}" method="POST" name="update_house" id="update_house">
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons">home</i>
+                <select class="form-control category-formfield" id="category" name="category_name" style="margin-bottom:20px;">
+                    <label>Select Category</label>
+                    <option value="" disabled selected>Choose your option</option>
+                    <!-- Populates categories from DB green_buildings.categories -->
                     {% for category in categories %}
                         {% if category.category_name == house.category_name %}
-                        <option value="{{category.category_name}}" selected>{{category.category_name | capitalize}}</option>
+      	                <option value="{{category.category_name}}" selected >{{category.category_name | capitalize}}</option>
                         {% else %}
                         <option value="{{category.category_name}}">{{category.category_name | capitalize}}</option>
-                        {% endif %}
                     {% endfor %}
                 </select>
-                <div class="form-group" style="margin-bottom:10px;">
-                    <div class="controls">
-                        <i class="material-icons">face</i><label class="form-field-description">Your Name</label>
-                            <input type="text" class="form-control" id="user_name" name="user_name" required data-validation-required-message="Please enter your name." value="{{house.user_name}}" maxlength="100" >
-                    </div>
-                </div>      
-                <div class="form-group">
-                    <div class="controls">
-                    <i class="material-icons">house</i><label class="form-field-description">Green Building name</label>
-                        <input type="text" class="form-control" id="house_name" name="house_name" required data-validation-required-message="Please enter your house name." value="{{house.house_name}}" maxlength="100">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="controls">
-                    <i class="material-icons">room</i><label class="form-field-description">Location</label>
-                        <input type="text" class="form-control" id="location" name="location" required data-validation-required-message="Please enter your location." value="{{house.location}}" maxlength="100">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="controls">
-                    <i class="material-icons">calendar_today</i><label class="form-field-description">Year of construction</label>
-                        <input type="text" class="form-control" id="year" name="year" required data-validation-required-message="Please enter the year of construction." value="{{house.year}}" maxlength="4">
-                    </div>
-                </div>                                         
-                <div class="form-group">
-                    <div class="controls">
-                    <i class="material-icons">add_photo_alternate</i><label class="form-field-description">Add link to your picture</label>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="input-field col s12">
+                        <i class="material-icons">face</i>
+                        <label class="form-field-user">Your Name</label>
+                            <input type="text" class="form-control" id="user_name" name="user_name" required data-validation-required-message="Please enter your name." maxlength="100" value="{{house.user_name}}">
+            </div>
+        </div>      
+        <div class="row">
+            <div class="input-field col s12">
+                    <i class="material-icons">house</i>
+                    <label class="form-field-name">Green Building name</label>
+                        <input type="text" class="form-control" id="house_name" name="house_name" required data-validation-required-message="Please enter your house name." maxlength="100" value="{{house.house_name}}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                    <i class="material-icons">room</i>
+                    <label class="form-field-location">Location</label>
+                        <input type="text" class="form-control" id="location" name="location" required data-validation-required-message="Please enter your location." maxlength="100" value="{{house.location}}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                    <i class="material-icons">calendar_today</i>
+                    <label class="form-field-year">Year of construction</label>
+                        <input type="text" class="form-control" id="year" name="year" required data-validation-required-message="Please enter the year of construction." maxlength="4" value="{{house.year}}">
+            </div>
+        </div>                                         
+        <div class="row">
+            <div class="input-field col s12">
+                    <i class="material-icons">add_photo_alternate</i>
+                    <label class="form-field-image">Add link to your picture</label>
                         <input class="form-control" id="image" name="image" type="url" pattern="https://.*" required data-validation-required-message="Please enter your link" placeholder="Paste the link to your image here" value="{{house.image}}">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="controls">
-                    <i class="material-icons">reorder</i><label class="form-field-description">Description</label>
-                    <textarea class="form-control" id="description" name="description" required data-validation-required-message="Please enter a short house description." maxlength="1000">{{house.description}}</textarea>
-                    </div>
-                </div>
-                <div class="col-md-10">
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                    <i class="material-icons">reorder</i>
+                    <label class="form-field-description">Description</label>
+                    <textarea class="form-control" id="description" name="description" required data-validation-required-message="Please enter a short house description." maxlength="1000" value="{{house.description}}">{{house.description}}</textarea>
+            </div>
+        </div>
+        <div class="col s12">
                 <h5>Click "Update" to confirm</h5>           
                     <button type="submit" class="btn btn-success" onclick="alert_edit()" id="sendMessageButton">Update</button>
                     <a href="{{url_for('house_detail', house_id=house._id )}}" onclick="alert_no_edit()" class="btn btn-success">Cancel</a> 
-                </div>
-        </form>
-    </div>
+        </div>
+    </form>
 </div>
 
+
 <!-- Alert prompts for editing or canceling edit process -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <script>    
 function alert_edit(){
         alert("Thank you! The building has been updated successfully.");

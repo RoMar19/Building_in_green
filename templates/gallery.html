@@ -7,7 +7,7 @@
 <a href="{{url_for('add_house')}}" class="btn btn-success" style="margin-bottom: 50px;">Add yours</a>
 
 <h2>Your selection:</h2>
-<!-- Shows the gallery houses in the database base on category selection -->
+<!-- Shows the gallery of the houses in the database base on category selection -->
 
 
 	{% for house in houses %}
@@ -18,7 +18,7 @@
       				<h3 class="category_name">Main material used:  {{ house.category_name | capitalize}}</h3>
       				<h4 class="house_name">{{ house.house_name }}:</h4>
       				<p class="description">{{ house.description }}</p>
-      				<a href="{{url_for('house_detail', house_id=house._id)}}" class="btn btn-success" 					style="text-align:center;">More info.</a>
+      				<a href="{{url_for('house_detail', house_id=house._id)}}" class="btn btn-success" style="text-align:center;">More info.</a>
     			</div>
   			</div> 
 	    </div>

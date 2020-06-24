@@ -27,11 +27,11 @@
     <div class="nav-wrapper">
             <a href="{{ url_for('index') }}" class="brand-logo">Building in Green</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
+            <ul class="right">
                 <li><a href="{{ url_for('index') }}">Home</a></li>
                 <li><a href="{{ url_for('add_house') }}">Add your Green Building</a></li>
             <!-- Dropdown Trigger -->
-                <li><a class="dropdown-trigger" href="{{url_for('gallery'}}" data-target="dropdown1">Green Buildings Community Gallery<i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a class="dropdown-trigger" href="#" data-target="dropdown1">Green Buildings Community Gallery<i class="material-icons right">arrow_drop_down</i></a></li>
             </ul>
             <!-- Dropdown Structure -->
             <ul id="dropdown1" class="sidenav" id="mobile-demo">
@@ -43,9 +43,9 @@
             </ul>
     </div>
 </nav>
-  
+<div class="container">
 {% block content %} {% endblock %}
-  
+</div> 
  
 <!-- Footer -->
 <footer class="footer bg-light">
