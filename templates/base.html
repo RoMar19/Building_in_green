@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}">
     <link href="{{ url_for('static', filename='vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
@@ -20,25 +19,35 @@
 </head>
 <body>
 <!-- Navigation bar -->
-<nav>
-    <div class="nav-wrapper grey darken-3">
-            <a href="#!" class="brand-name left">Building in Green</a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="{{ url_for('index') }}">Home</a></li>
-                <li><a href="{{ url_for('add_house') }}">Add your Green Building</a></li>
-            <!-- Dropdown Trigger -->
-                <li><a class="dropdown-button" href="#!" data-activates="dropdown" data-beloworigin="true">Green Buildings Community Gallery<i class="mdi-navigation-arrow-drop-down right">arrow_drop_down</i></a></li>
-            </ul>
+<section class="navigation">
+  <div class="nav-container">
+    <div class="brand">
+      <a href="#!">Building in Green</a>
     </div>
-</nav>
-<!-- Dropdown Structure -->
-            <ul id="dropdown" class="dropdown-content">
-                <li><a href="{{url_for('gallery', selected_category= 'all') }}">All</a></li>
+    <nav>
+      <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+      <ul class="nav-list">
+        <li>
+          <a href="{{ url_for('index') }}">Home</a>
+        </li>
+        <li>
+          <a href="#!">Green Buildings Community Gallery</a>
+          <ul class="nav-dropdown">
+            <li><a href="{{url_for('gallery', selected_category= 'all') }}">All</a></li>
                 <li class="divider"></li>
                 {% for category in categories %}
                 <li><a href="{{url_for('gallery', selected_category = category.category_name) }}">{{ category.category_name | capitalize }}</a>
                 {% endfor %}
-            </ul>
+          </ul>
+        </li>
+        <li>
+          <a href="{{ url_for('add_house') }}">Add your Green Building</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</section>
+            
 
 {% block content %} {% endblock %}
  
@@ -61,20 +70,30 @@
 <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script type="text/javascript" src="js/materialize.min.js"></script>
 <script>
-$(document).ready(function(){
-    $(".dropdown-button").dropdown();
-        inDuration: 300,
-        outDuration: 225,
-        hover: true, // Activate on hover
-        belowOrigin: true, // Displays dropdown below the button
-        alignment: 'right' // Displays dropdown with edge aligned to the left of button
-    }
-  );
-		}); // End Document Ready
-})(jQuery); // End of jQuery name space
-});
+(function($) { // Begin jQuery
+  $(function() { // DOM ready
+    // If a link has a dropdown, add sub menu toggle.
+    $('nav ul li a:not(:only-child)').click(function(e) {
+      $(this).siblings('.nav-dropdown').toggle();
+      // Close one dropdown when selecting another
+      $('.nav-dropdown').not($(this).siblings()).hide();
+      e.stopPropagation();
+    });
+    // Clicking away from dropdown will remove the dropdown class
+    $('html').click(function() {
+      $('.nav-dropdown').hide();
+    });
+    // Toggle open and close nav styles on click
+    $('#nav-toggle').click(function() {
+      $('nav ul').slideToggle();
+    });
+    // Hamburger to X toggle
+    $('#nav-toggle').on('click', function() {
+      this.classList.toggle('active');
+    });
+  }); // end DOM ready
+})(jQuery); // end jQuery
 </script>
 </body>
 </html>
