@@ -33,9 +33,9 @@
         <div class="dropdown-content">
             <a class="dropdown-item" href="{{url_for('gallery', selected_category= 'all') }}">All</a>
             <div class="dropdown-divider"></div>
-            {% for category in categories %}
+                {% for category in categories %}
             	<a class="dropdown-item" href="{{url_for('gallery', selected_category = category.category_name) }}">{{ category.category_name | capitalize }}</a>
-            {% endfor %}
+                {% endfor %}
         </div>
     </div>
         <a class="nav-link" href="{{ url_for('add_house') }}">Add your Green Building</a>
