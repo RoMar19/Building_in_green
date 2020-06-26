@@ -1,24 +1,24 @@
 {% extends 'base.html' %} {% block content %}
 
-<div class="col s12 m6 l3 text-center">
+<div class="col-md-12 text-center">
 <div class="main">
 
-<h1>Community Gallery</h1>
+<h1 style="font-size:5vw;">Community Gallery</h1>
 <hr>
-<a href="{{url_for('add_house')}}" class="btn btn-success" style="margin-bottom: 50px;">Add yours</a>
+<a href="{{url_for('add_house')}}" class="btn btn-success right">Add yours</a>
 
 <div class="container">
-<h2>Your selection:</h2>
+<h2 style="font-size:4vw;" class="left">Your selection:</h2><br>
 <!-- Shows the gallery of the houses in the database base on category selection -->
 
 
 	{% for house in houses %}
 		<div class="row">
-  			<div class="column">
+  			<div class="col-md">
     			<div class="content">
       				<img src="{{ house.image }}" style="width:100%">
-      				<h3 class="category_name">Main material used:  {{ house.category_name | capitalize}}</h3>
-      				<h4 class="house_name">{{ house.house_name }}:</h4>
+      				<h4 class="category_name">Categoty:  {{ house.category_name | capitalize}}</h3>
+      				<h5 class="house_name">{{ house.house_name }}:</h4>
       				<p class="description">{{ house.description }}</p>
       				<a href="{{url_for('house_detail', house_id=house._id)}}" class="btn btn-success" style="text-align:center;">More info.</a>
     			</div>

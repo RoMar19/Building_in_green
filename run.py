@@ -66,7 +66,7 @@ def insert_house():
     form_data = request.form.to_dict()
     house_details = houses.insert_one(
     {
-    "category": form_data["category_name"],
+    "category_name": form_data["category_name"],
     "user_name": form_data["user_name"],
     "location": form_data["location"],
     "year": form_data["description"],

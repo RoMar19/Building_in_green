@@ -3,18 +3,18 @@
 
 <!--Form to add a new house to the DB green_buildings -->
 <div class="col s12 m6 l3 text-center">
-    <h2 style="margin-top:100px; padding-left:50px;">Join the Green Builders Comunity</h2>
-    <h4 style="padding-left:50px;">Add your own green home and show it to the world!</h4> 
+    <h2 style="margin-top:50px; font-size:5vw;" class="text-center">Join the Green Builders Comunity</h2>
+    <h4 style="font-size:4vw;" class="text-center">Add your own green home and show it to the world!</h4> 
 
 <div class="container">
-<div class="row">
+<div class="row-add">
     <form class="col s12 m6 l3" action="{{ url_for('insert_house') }}" method="POST" name="add_house" id="add_house">
-        <div class="row">
+        <div class="row-form">
             <div class="input-field col s12">
-                <i class="material-icons">home</i>
-                <select class="form-control category-formfield" id="category" name="category_name" style="margin-bottom:20px;">
+                <i class="material-icons text-success left" style="margin-bottom:20px;">home</i>
+                <select class="form-control category-formfield" id="category" name="category_name">
                     <label>Select Category</label>
-                    <option value="" disabled selected>Choose your option</option>
+                    <option value="" disabled selected>Choose Catagory</option>
                     <!-- Populates categories from DB green_buildings.categories -->
                     {% for category in categories %}
       	                <option value="{{category.category_name}}">{{category.category_name | capitalize}}</option>
@@ -23,57 +23,57 @@
             </div>
         </div>
         
-        <div class="row">
+        <div class="row-form">
             <div class="input-field col s12 m6 l3">
-                        <i class="material-icons">face</i>
-                        <label class="form-field-user">Your Name</label>
+                        <i class="material-icons text-success left">face</i>
+                        <label class="form-field-user" style="margin-top:20px;">Your Name</label>
                             <input type="text" class="form-control" id="user_name" name="user_name" required data-validation-required-message="Please enter your name." maxlength="100">
             </div>
         </div>      
-        <div class="row">
+        <div class="row-form">
             <div class="input-field col s12 s12 m6 l3">
-                    <i class="material-icons">house</i>
-                    <label class="form-field-name">Green Building name</label>
+                    <i class="material-icons text-success left">house</i>
+                    <label class="form-field-name" style="margin-top:20px;">Green Building name</label>
                         <input type="text" class="form-control" id="house_name" name="house_name" required data-validation-required-message="Please enter your house name." maxlength="100">
             </div>
         </div>
-        <div class="row">
+        <div class="row-form">
             <div class="input-field col s12 s12 m6 l3">
-                    <i class="material-icons">room</i>
-                    <label class="form-field-location">Location</label>
+                    <i class="material-icons text-success left">room</i>
+                    <label class="form-field-location" style="margin-top:20px;">Location</label>
                         <input type="text" class="form-control" id="location" name="location" required data-validation-required-message="Please enter your location." maxlength="100">
             </div>
         </div>
-        <div class="row">
+        <div class="row-form">
             <div class="input-field col s12 s12 m6 l3">
-                    <i class="material-icons">calendar_today</i>
-                    <label class="form-field-year">Year of construction</label>
+                    <i class="material-icons text-success left">calendar_today</i>
+                    <label class="form-field-year" style="margin-top:20px;">Year of construction</label>
                         <input type="text" class="form-control" id="year" name="year" required data-validation-required-message="Please enter the year of construction." maxlength="4">
             </div>
         </div>                                         
-        <div class="row">
+        <div class="row-form">
             <div class="input-field col s12 s12 m6 l3">
-                    <i class="material-icons">add_photo_alternate</i>
-                    <label class="form-field-image">Add link to your picture</label>
+                    <i class="material-icons text-success left" style="padding-top:20px; margin-top:20px;">add_photo_alternate</i>
+                    <label class="form-field-image" style="margin-top:25px;">Add link to your picture</label>
                         <input class="form-control" id="image" name="image" type="url" pattern="https://.*" required data-validation-required-message="Please enter your link" placeholder="Paste the link to your image here">
             </div>
         </div>
-        <div class="row">
+        <div class="row-form">
             <div class="input-field col s12 s12 m6 l3">
-                    <i class="material-icons">reorder</i>
-                    <label class="form-field-description">Description</label>
+                    <i class="material-icons text-success left" style="margin-bottom:10px;">reorder</i>
+                    <label class="form-field-description" style="margin-top:30px;margin-left:15px;">Description</label>
                     <textarea class="form-control" id="description" name="description" required data-validation-required-message="Please enter a short house description." maxlength="1000" ></textarea>
             </div>
         </div>
-        <div class="col s12 s12 m6 l3">
-            <div class="btn-group" role="group" style="padding-left:260px;">
-                <button class="btn waves-effect waves-light" type="submit" name="action" onclick="alert_add()" id="sendMessageButton">Submit
+        <div class="col s12 s12 m6 l3" style="margin-top: 60px;">
+            <div class="btn-group" role="group">
+                <button class="btn btn-success waves-effect waves-light" type="submit" name="action" onclick="alert_add()" id="sendMessageButton">Submit
                 <i class="material-icons right">send</i></button>
-                <button class="btn waves-effect waves-light" href="{{url_for('index')}}" onclick="alert_no_add()" >Cancel</button>
+                <button class="btn btn-success waves-effect waves-light" href="{{url_for('index')}}" onclick="alert_no_add()" >Cancel</button>
             </div>
         </div>
-            <div class="col s12 s12 m6 l3 text-center" style="margin-top:20px;">
-                <a href="{{url_for('gallery', selected_category = category_name )}}" style="margin-top:20px;">To view your Green Building added to the Comunity visit the Gallery....you will fint it at the end.</a>
+            <div class="col s12 s12 m6 l3 text-center" style="margin-top:40px; padding-bottom:20px;">
+                <a href="{{url_for('gallery', selected_category = category_name )}}" style="margin-top:20px; text-decoration:none; color:#212121"><strong>To view your Green Building added to the Comunity visit the Gallery....you will fint it at the end.</strong></a>
             </div>
     </form>  
 </div>
@@ -86,16 +86,14 @@
 $(document).ready(function(){
     $('select').formSelect();
 });
-</script>
 
-<script>
 function alert_add(){
         alert("Thank you! The building has been added successfully.");
     }
 function alert_no_add(){
         alert("Your building has not been added.");
     }
-<script>
+</script>
 
+{% endblock %}  
 
-{% endblock %}
