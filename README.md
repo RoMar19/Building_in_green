@@ -12,13 +12,13 @@ Live demo: [Building in green](https://bulding-in-green.herokuapp.com/)
 
 The Website is developed by a Green Builder enthusiast for other sustainable and green makers enthusiasts.
 The pourpose of this project is to have a showroom (database) of different sustainable and eco-friendly construction in a natural environment. 
-To share ideasand find inspiration from others for their next build. This is a user-friendly application for users trying to be clean and easy to use.
+To share ideas and find inspiration from others for their next build. This is a user-friendly application for users trying to be clean and easy to use.
 All images and data used in this project are fictitious. 
 
 ### The main goal of this app is:
 
 * Host a user-friendly environment which is intuitive by nature.
-* Provide both front end usability and back end functionality to create a full application experience
+* Provide both front end usability and back end functionality to create a full application experience.
 * Spread knowledge of green suitable construction.
 
 ### The user's goals are:
@@ -119,7 +119,7 @@ In this case we must fill in also the required fields and at the end we will fin
   *To view your Green Building added to the Community visit the Gallery*
 * Cancel: On click it will cancel the operation and nothing will be added to the data base. 
   Alert with the next message shown: 
-  *Your building has not added.* After clicking OK, open Home page.
+  *Your building has not added.* After clicking OK, open View More Details page.
 
 Visiting Green Builders Community Gallery, we will see that the new house is displayed at the end of the list. 
 Or if you select a category it will be displayed at the end of the list under that category.
@@ -173,7 +173,7 @@ The website is built and developed using **GitPod** as IDE.
 
 ## Deployment
 GitPod was used as IDE to develop this application. Throughout the development, the project was 
-committed to the git and continuously pushed to Heroku connected to GitHub. 
+committed to the git and continuously pushed automatically to Heroku connected to GitHub. 
 
 **Deploy to Heroku**
 Steps to deploy the application on Heroku:

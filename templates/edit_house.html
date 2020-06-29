@@ -3,7 +3,7 @@
 
 <!--Form to edit a house in the DB green_buildings -->
 <div class="col s12 m6 l3 text-center">
-<h2 style="margin-top:50px; font-size:5vw;" class="text-center">>Edit Green Building</h2>
+<h2 style="margin-top:50px; font-size:5vw;" class="text-center">Edit Green Building</h2>
 
 <div class="container">
 <div class="row-add">
@@ -25,28 +25,28 @@
         <div class="row-form">
             <div class="input-field col s12 m6 l3">
                         <i class="material-icons text-success left">face</i>
-                        <label class="form-field-user" style="margin-top:20px;">Your Name</label>
+                        <label class="form-field-user" style="margin-top:20px;padding-left:50px;">Your Name</label>
                             <input type="text" class="form-control" id="user_name" name="user_name" required data-validation-required-message="Please enter your name." maxlength="100" value="{{house.user_name}}">
             </div>
         </div>      
         <div class="row-form">
             <div class="input-field col s12 s12 m6 l3">
                     <i class="material-icons text-success left">house</i>
-                    <label class="form-field-name" style="margin-top:20px;">Green Building name</label>
+                    <label class="form-field-name" style="margin-top:20px;padding-left:50px;">Green Building name</label>
                         <input type="text" class="form-control" id="house_name" name="house_name" required data-validation-required-message="Please enter your house name." maxlength="100" value="{{house.house_name}}">
             </div>
         </div>
         <div class="row-form">
             <div class="input-field col s12 s12 m6 l3">
                     <i class="material-icons text-success left">room</i>
-                    <label class="form-field-location" style="margin-top:20px;">Location</label>
+                    <label class="form-field-location" style="margin-top:20px;padding-left:50px;">Location</label>
                         <input type="text" class="form-control" id="location" name="location" required data-validation-required-message="Please enter your location." maxlength="100" value="{{house.location}}">
             </div>
         </div>
         <div class="row-form">
             <div class="input-field col s12 s12 m6 l3">
                     <i class="material-icons text-success left">calendar_today</i>
-                    <label class="form-field-year" style="margin-top:20px;">Year of construction</label>
+                    <label class="form-field-year" style="margin-top:20px;padding-left:50px;">Year of construction</label>
                         <input type="text" class="form-control" id="year" name="year" required data-validation-required-message="Please enter the year of construction." maxlength="4" value="{{house.year}}">
             </div>
         </div>                                         
@@ -65,11 +65,12 @@
             </div>
         </div>
         <div class="col s12 s12 m6 l3" style="margin-top: 60px;">
-            <div class="btn-group" role="group">
-                <h5 style="font-size:3vw;">Click "Update" to confirm</h5>           
-                <button type="submit" class="btn btn-success" onclick="alert_edit()" id="sendMessageButton">Update</button>
+            <div class="btn-group" role="group">           
+                <button type="submit" name="action" class="btn btn-success" onclick="alert_edit()" id="sendMessageButton">Update</button>
                 <a href="{{url_for('house_detail', house_id=house._id )}}" onclick="alert_no_edit()" class="btn btn-success">Cancel</a> 
+            </div>
         </div>
+
     </form>
 </div>
 </div>
@@ -82,9 +83,7 @@
 $(document).ready(function(){
     $('select').formSelect(); 
 }); 
-</script>
 
-<script>
 function alert_edit(){
         alert("Thank you! The building has been updated successfully.");
     }
