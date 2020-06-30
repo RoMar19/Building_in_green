@@ -13,7 +13,7 @@
                 <i class="material-icons text-success left" style="margin-bottom:20px;">home</i>
                 <label class="form-field-category" style="padding-left:50px;">Select Category</label>
                 <select name="category_name" id="category_name">
-                    <option value="" disabled selected>Choose Catagory</option>
+                    <option value="" disabled>Choose Catagory</option>
                     <!-- Populates categories from DB green_buildings.categories -->
                     {% for category in categories %}
                         {% if category.category_name == houses.category_name %}

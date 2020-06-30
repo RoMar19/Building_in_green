@@ -64,6 +64,7 @@ def insert_house():
     houses = mongo.db.houses
 
     form_data = request.form.to_dict()
+
     house_details = houses.insert_one(
     {
     "category_name": form_data["category_name"],
@@ -86,6 +87,7 @@ def insert_house():
 def edit_house(house_id):
     house = mongo.db.houses.find_one({"_id": ObjectId(house_id)})
     categories = mongo.db.categories.find()
+    category_name = [category for category in categories]
     return render_template("edit_house.html",
                             house=house,
                             categories=categories,
@@ -96,12 +98,12 @@ def edit_house(house_id):
 @app.route('/update_house/<house_id>', methods=["POST"])
 def update_house(house_id):
     house = mongo.db.houses
+    category_name = mongo.db.categories
 
     form_data = request.form.to_dict()
 
     house.update({"_id": ObjectId(house_id)},
                 {
-                "category_name": form_data["category_name"],
                 "user_name": form_data["user_name"],
                 "location": form_data["location"],
                 "year": form_data["year"],
