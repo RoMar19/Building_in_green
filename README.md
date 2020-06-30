@@ -100,8 +100,8 @@ We have 2 buttons:
 * Edit: On click it will open a new page, Edit Green Building page.
 
 ### Edit Green Building
-Displays a Form with select option and fields to fill in the requested details.
-Materializecss.com Form and jQuery for the initialization added.
+Displays a Form with select option and input fields to fill in the requested details.
+Materializecss.com Form and jQuery initialization added.
 
 We will find 2 buttons:
 * Update: This button must be clicked to save the changes of the records. And an alert message will show:

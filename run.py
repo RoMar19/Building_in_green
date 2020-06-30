@@ -69,7 +69,7 @@ def insert_house():
     "category_name": form_data["category_name"],
     "user_name": form_data["user_name"],
     "location": form_data["location"],
-    "year": form_data["description"],
+    "year": form_data["year"],
     "house_name": form_data["house_name"],
     "image": form_data["image"],
     "description": form_data["description"]
