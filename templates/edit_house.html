@@ -3,20 +3,20 @@
 
 <!--Form to edit a house in the DB green_buildings -->
 <div class="col s12 m6 l3 text-center">
-<h2 style="margin-top:50px; font-size:5vw;" class="text-center">Edit Green Building</h2>
+<h1 style="font-size:4vw; margin-top:80px;" class="text-center">Edit Green Building</h2>
 
 <div class="container">
 <div class="row-add">
-    <form class="col s12 m6 l3" action="{{ url_for('insert_house') }}" method="POST" name="add_house" id="add_house">
+    <form class="col s12 m6 l3" action="{{ url_for('update_house', house_id=house._id) }}" method="POST" name="edit_house" id="edit_house">
         <div class="row-form">
             <div class="input-field col s12">
                 <i class="material-icons text-success left" style="margin-bottom:20px;">home</i>
-                <select class="form-control category-formfield" id="category" name="category_name">
-                    <label>Select Category</label>
+                <label class="form-field-category" style="padding-left:50px;">Select Category</label>
+                <select>
                     <option value="" disabled selected>Choose Catagory</option>
                     <!-- Populates categories from DB green_buildings.categories -->
                     {% for category in categories %}
-      	                <option value="{{category.category_name}}">{{category.category_name | capitalize}}</option>
+                        <option value="{{category.category_name}}">{{category.category_name}}</option>
                     {% endfor %}
                 </select>
             </div>
@@ -49,7 +49,7 @@
                     <label class="form-field-year" style="margin-top:20px;padding-left:50px;">Year of construction</label>
                         <input type="text" class="form-control" id="year" name="year" required data-validation-required-message="Please enter the year of construction." maxlength="4" value="{{house.year}}">
             </div>
-        </div>                                         
+        </div>                                     
         <div class="row-form">
             <div class="input-field col s12 s12 m6 l3">
                     <i class="material-icons text-success left" style="padding-top:20px; margin-top:20px;">add_photo_alternate</i>
@@ -65,7 +65,7 @@
             </div>
         </div>
         <div class="col s12 s12 m6 l3" style="margin-top: 60px;">
-            <div class="btn-group" role="group">           
+            <div class="btn-group" role="group" style="margin-bottom:30px;">           
                 <button type="submit" name="action" class="btn btn-success" onclick="alert_edit()" id="sendMessageButton">Update</button>
                 <a href="{{url_for('house_detail', house_id=house._id )}}" onclick="alert_no_edit()" class="btn btn-success">Cancel</a> 
             </div>
@@ -82,7 +82,7 @@
 <script>
 $(document).ready(function(){
     $('select').formSelect(); 
-}); 
+});
 
 function alert_edit(){
         alert("Thank you! The building has been updated successfully.");

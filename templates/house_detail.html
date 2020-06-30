@@ -1,35 +1,31 @@
 {% extends 'base.html' %} {% block content %}
 
 <div class="col s12 m6 l3 text-center">
-<h2 style="margin-top:50px; font-size:5vw;" class="text-center">View more details</h1>
+<h2 style="margin-top:80px;font-size:4vw;" class="text-center">View more details</h1>
 
 <!-- Shows the details of the selected house -->
 
-<div class="container">
-<div class="row">
-    <div class="col-md-12 d-flex justify-content-center">
-        <div class="card text-center">
-            <div class="card-image">
-            <a>
-            <img class="img-fluid" src="{{ house.image }}" width="100%" height="auto">
-            </a>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 d-flex justify-content-center">
+                <div class="card text-center">
+                    <div class="card-image">
+                        <a><img class="img-fluid" src="{{ house.image }}" width="100%" height="auto"></a>
+                    </div>
+                        <p>Category: {{ house.category_name | capitalize}}</p>
+                        <span class="card-title">{{ house.house_name }}</span>
+                    <div class="card-content">
+                        <p>By: {{ house.user_name }} - {{ house.year }} - {{ house.location }}</p>
+                        <p>{{ house.description }}</p>
+                    </div>
+                    <div class="buttons" style="margin-bottom: 20px;">
+                        <a href="{{url_for('edit_house', house_id=house._id)}}" class="btn btn-success">Edit</a>
+                    <button type="button" class="btn btn-danger" onclick="confirm_del()">Delete</button>
+                    </div>
+                </div>
             </div>
-            <p>{{ house.category_name | capitalize }}</p>
-            <span class="card-title">{{ house.house_name }}</span>
-        <div class="card-content">
-        <p>By: {{ house.user_name }} {{ house.year }} - {{ house.location }}</p>
-        </div>
-        <div class="card-action">
-          <p>{{ house.description }}</p>
-        </div>
-        <div class="buttons" style="margin-bottom: 20px;">
-        <a href="{{url_for('edit_house', house_id=house._id)}}" class="btn btn-success">Edit</a>
-        <button type="button" class="btn btn-danger" onclick="confirm_del()">Delete</button>
-        </div>
         </div>
     </div>
-</div>
-</div>
 </div>
 
 <!-- Alert prompt for deleting or canceling delete process -->

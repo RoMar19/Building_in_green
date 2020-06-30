@@ -95,16 +95,16 @@ def edit_house(house_id):
 # Updates house info. in the DB after changes of the user. (UPDATE)
 @app.route('/update_house/<house_id>', methods=["POST"])
 def update_house(house_id):
-    houses = mongo.db.houses
+    house = mongo.db.houses
 
     form_data = request.form.to_dict()
 
-    houses.update({"_id": ObjectId(house_id)},
+    house.update({"_id": ObjectId(house_id)},
                 {
-                "category": form_data["category_name"],
+                "category_name": form_data["category_name"],
                 "user_name": form_data["user_name"],
                 "location": form_data["location"],
-                "year": form_data["description"],
+                "year": form_data["year"],
                 "house_name": form_data["house_name"],
                 "image": form_data["image"],
                 "description": form_data["description"]
@@ -125,4 +125,4 @@ def delete_house(house_id):
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP", "0.0.0.0"),
             port=int(os.environ.get("PORT", 5000)),
-            debug=False)
+            debug=True)

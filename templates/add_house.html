@@ -3,8 +3,8 @@
 
 <!--Form to add a new house to the DB green_buildings -->
 <div class="col s12 m6 l3 text-center">
-    <h2 style="margin-top:50px; font-size:5vw;" class="text-center">Join the Green Builders Comunity</h2>
-    <h4 style="font-size:4vw;" class="text-center">Add your own green home and show it to the world!</h4> 
+    <h2 style="font-size:4vw; margin-top:80px;" class="text-center">Join the Green Builders Comunity</h2>
+    <h4 style="font-size:3vw;" class="text-center">Add your own green home and show it to the world!</h4> 
 
 <div class="container">
 <div class="row-add">
@@ -12,8 +12,8 @@
         <div class="row-form">
             <div class="input-field col s12">
                 <i class="material-icons text-success left" style="margin-bottom:20px;">home</i>
-                <select class="form-control category-formfield" id="category" name="category_name">
-                    <label>Select Category</label>
+                <label class="form-field-category" style="padding-left:50px;">Select Category</label>
+                <select class="form-control category-formfield" id="category_name" name="category_name">
                     <option value="" disabled selected>Choose Catagory</option>
                     <!-- Populates categories from DB green_buildings.categories -->
                     {% for category in categories %}
@@ -66,10 +66,10 @@
             </div>
         </div>
         <div class="col s12 s12 m6 l3" style="margin-top: 60px;">
-            <div class="btn-group" role="group">
-                <button class="btn btn-success" type="submit" name="action" onclick="alert_add()" id="sendMessageButton">Submit
+            <div class="btn-group" role="group" style="margin-bottom:30px;">
+                <button class="btn btn-success" type="submit" name="action" onclick="alert_add()" id="sendMessageButton">Insert
                 <i class="material-icons right">send</i></button>
-                <a class="btn btn-success" href="{{url_for('house_detail', house_id=house._id )}}" onclick="alert_no_add()">Cancel</a>
+                <a class="btn btn-success" href="{{url_for('index')}}" onclick="alert_no_add()">Cancel</a>
             </div>
         </div>
             
