@@ -90,7 +90,7 @@ def edit_house(house_id):
     category_name = [category for category in categories]
     return render_template("edit_house.html",
                             house=house,
-                            categories=categories,
+                            categories=category_name,
                             page_title="Edit Green Building")
 
 
@@ -104,6 +104,7 @@ def update_house(house_id):
 
     house.update({"_id": ObjectId(house_id)},
                 {
+                "category_name": form_data["category_name"],    
                 "user_name": form_data["user_name"],
                 "location": form_data["location"],
                 "year": form_data["year"],
