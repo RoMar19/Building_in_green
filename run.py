@@ -21,7 +21,7 @@ coll = mongo.db
 
 @app.route('/')
 def index():
-    categories = mongo.db.categories.find()
+    categories = list(mongo.db.categories.find())
     return render_template("index.html", page_title="Home", categories=categories)
     
 
@@ -32,6 +32,7 @@ def index():
 def gallery(selected_category):
     if selected_category == "all":
         houses = mongo.db.houses.find()
+        print(selected_category)  
     else: 
         houses = mongo.db.houses.find(
             { "category_name": selected_category }

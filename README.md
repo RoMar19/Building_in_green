@@ -111,10 +111,9 @@ We will find 2 buttons:
   
 
 ### Add your own
-This is like the Form at Edit Green Building page.
-In this case we must fill in also the required fields and at the end we will find different buttons to:
+This is also a Form from Materialize with Select option and equired fieldss. We will find 2 buttons to:
 * Insert: On click add the records to the data base of the Community, and you will see an alert with text:
-*"Thank you! The building has been added successfully."* After clicking OK, open View More Details page.
+  *"Thank you! The building has been added successfully."* After clicking OK, open View More Details page.
   where you can Delete or Edit the inserted data. To view your record added to the Community user has to click on:
   *To view your Green Building added to the Community visit the Gallery*
 * Cancel: On click it will cancel the operation and nothing will be added to the data base. 
@@ -132,7 +131,7 @@ Chat for the members to communicate between them.
 ## Existing features
 Navigation bar - Collapsible for small screens.
 CRUD - Users can upload, read, update, and delete content in the database.
-Sorting - Users can select through Building categories.
+Sorting - Users can select diferent categories Building categories.
 
 ## Technologies used
 
@@ -201,7 +200,7 @@ Steps to deploy the application on Heroku:
 Pages work as expected in a responsive manner. All select options, forms and buttons tested. 
 Only a function to clear the selected categories in the dropdown is yet to be implemented. 
 When user select an option from the dropdown, after displaying the selection, dropdown does not show
-all the possible options to selected again. User has to click any other nav items to refresh all select options. 
+all the possible options to selected again. User has to click any other nav link to refresh select options. 
 Clear/refresh dropdown function must be implemented in future.
 
 ## Credits
