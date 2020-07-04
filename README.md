@@ -29,11 +29,13 @@ All images and data used in this project are fictitious.
 ## UI
 
 **Colors, Fonts & Layout**
-The layout is based on a Theme template from startbootstrap.com.
-Colors and Fonts from landing-page.css and mystyle.css to customize
+The layout was based on a Theme template from startbootstrap.com, 
+after removing all Bootstrap components creating conflicts with Materialize,
+new style appied.
+Colors and Fonts from mystyle.css to customize
 the website.
 **Responsiveness**
-Using Bootstrap and mystyle.css to make a responsive layout from large to small size screens.
+Using media queries, mystlyle.css and Materlialize to make a responsive layout from large to small size screens.
 
 
 ## UX
@@ -73,8 +75,8 @@ We have also a footer in all pages where we have only a copyright statement. The
 initial idea of the project. 
 
 ### Home
-Shows basic sustainable principles of the Green Construction, with different images/icons/text. 
-This a landing page base on Themes from startbootstrap.com
+Welcome page. Shows basic sustainable principles of the Green Construction, with different icons/text. 
+
 
 ### Green Builders Community Gallery
 Displays all the records of the Community. It is also possible to filter by category (Wood, Cob, Stone or Upcycling).
@@ -142,13 +144,11 @@ This Green Building web application was built using:
 **Python** was used to build the structure and functionality of the back end.
 
 ### Libraries to style interactive options:
-* Startbootstrap
-* Bootstrap CSS
-* Bootstrap JS
+
 * FontAwesome
 * jQuery
 * Dnspython
-* Bootstrap and Materialize to make the structure and the site responsive in a simple manner. 
+* Materialize to make the structure and site responsive in a simple manner. 
 * Flask used to display python functions on the website.
 * Pymongo to make the code written in python talk to the database.
 
@@ -218,6 +218,10 @@ Data on MongoDB non-real, written by me.
 
 Thank you very much to all Code Institute Team Tutors and my Mentor 
 for his support, patience, and guidance throughout this project.
+
+## Comments
+It was a very frustrating experience to mix Bootstraap and Materlialize from wich I have learned the lesson.
+It was causing big difficults to style and get a proper wesite layout until find out that it is not possible to mix both style libraries.
 
 ## Disclaimer
 The content of this website is for educational purposes only.
