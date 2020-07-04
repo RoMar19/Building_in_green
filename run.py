@@ -32,7 +32,6 @@ def index():
 def gallery(selected_category):
     if selected_category == "all":
         houses = mongo.db.houses.find()
-        print(selected_category)  
     else: 
         houses = mongo.db.houses.find(
             { "category_name": selected_category }
@@ -129,4 +128,4 @@ def delete_house(house_id):
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP", "0.0.0.0"),
             port=int(os.environ.get("PORT", 5000)),
-            debug=True)
+            debug=False)

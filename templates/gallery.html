@@ -1,10 +1,10 @@
 {% extends 'base.html' %} {% block content %}
 <div class="main">
-    <h1 style="font-size:4vw; margin-top:80px;" class="text-center">Community Gallery</h1>
+    <h4 class="center" style="margin-top:80px;">Community Gallery</h4>
     <hr>
     <div style="margin-bottom:50px;">
-    <a href="{{url_for('add_house')}}" class="btn btn-success right" style="margin-right:20px;">Add yours</a>
-    <h2 style="font-size:3vw;margin-left:20px;" class="left">Your selection:</h2><br>
+    <a href="{{url_for('add_house')}}" class="waves-effect waves-light btn right" style="margin-right:20px; margin-top:15px;">Add yours</a>
+    <h5 style="margin-left:20px;" class="left">Your selection:</h5><br>
     </div>
 </div>
 <!-- Shows the gallery of the houses in the database base on category selection -->
@@ -12,7 +12,7 @@
 
 	{% for house in houses %}
     <div class="album py-5 bg-light">
-        <div class="container">
+        <div class="container" style="padding-top:30px;">
             <div class="row">
                 <div class="md-4">
                     <div class="card mb-4 box-shadow">
@@ -24,7 +24,7 @@
                                 <p class="description">{{ house.description }}</p> 
                             </div>
                             <div class="d-flex justify-content-between align-items-center">
-                                <a href="{{url_for('house_detail', house_id=house._id)}}" class="btn btn-success">More info.</a>
+                                <a href="{{url_for('house_detail', house_id=house._id)}}" class="waves-effect waves-light btn">More info.</a>
                             </div> 
                         </div> 
                     </div> 

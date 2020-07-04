@@ -3,14 +3,14 @@
 
 <!--Form to edit a house in the DB green_buildings -->
 <div class="col s12 m6 l3 text-center">
-<h1 style="font-size:4vw; margin-top:80px;" class="text-center">Edit Green Building</h2>
+<h4 style="margin-top:80px;" class="center">Edit Green Building</h4>
 
 <div class="container">
 <div class="row-add">
     <form class="col s12 m6 l3" action="{{ url_for('update_house', house_id=house._id) }}" method="POST" name="edit_house" id="edit_house">
         <div class="row-form">
             <div class="input-field col s12">
-                <i class="material-icons text-success left" style="margin-bottom:20px;">home</i>
+                <i class="material-icons" style="margin-bottom:20px;">home</i>
                 <label class="form-field-category" style="padding-left:50px;">Select Category</label>
                 <select name="category_name" id="category_name">
                     <option value="" disabled>Choose Catagory</option>
@@ -27,28 +27,28 @@
         </div>
         <div class="row-form">
             <div class="input-field col s12 m6 l3">
-                        <i class="material-icons text-success left">face</i>
+                        <i class="material-icons">face</i>
                         <label class="form-field-user" style="margin-top:20px;padding-left:50px;">Your Name</label>
                             <input type="text" class="form-control" id="user_name" name="user_name" required data-validation-required-message="Please enter your name." maxlength="100" value="{{house.user_name}}">
             </div>
         </div>      
         <div class="row-form">
             <div class="input-field col s12 s12 m6 l3">
-                    <i class="material-icons text-success left">house</i>
+                    <i class="material-icons">house</i>
                     <label class="form-field-name" style="margin-top:20px;padding-left:50px;">Green Building name</label>
                         <input type="text" class="form-control" id="house_name" name="house_name" required data-validation-required-message="Please enter your house name." maxlength="100" value="{{house.house_name}}">
             </div>
         </div>
         <div class="row-form">
             <div class="input-field col s12 s12 m6 l3">
-                    <i class="material-icons text-success left">room</i>
+                    <i class="material-icons">room</i>
                     <label class="form-field-location" style="margin-top:20px;padding-left:50px;">Location</label>
                         <input type="text" class="form-control" id="location" name="location" required data-validation-required-message="Please enter your location." maxlength="100" value="{{house.location}}">
             </div>
         </div>
         <div class="row-form">
             <div class="input-field col s12 s12 m6 l3">
-                    <i class="material-icons text-success left">calendar_today</i>
+                    <i class="material-icons">calendar_today</i>
                     <label class="form-field-year" style="margin-top:20px;padding-left:50px;">Year of construction</label>
                         <input type="text" class="form-control" id="year" name="year" required data-validation-required-message="Please enter the year of construction." maxlength="4" value="{{house.year}}">
             </div>
@@ -64,13 +64,13 @@
             <div class="input-field col s12 s12 m6 l3">
                     <i class="material-icons text-success left" style="margin-bottom:10px;">reorder</i>
                     <label class="form-field-description" style="margin-top:30px;margin-left:15px;">Description</label>
-                    <textarea class="form-control" id="description" name="description" required data-validation-required-message="Please enter a short house description." maxlength="1000" value="{{house.description}}"></textarea>
+                    <textarea class="form-control" id="description" name="description" type="text" required data-validation-required-message="Please enter a short house description." maxlength="1000" value="{{house.description}}"></textarea>
             </div>
         </div>
         <div class="col s12 s12 m6 l3" style="margin-top: 60px;">
             <div class="btn-group" role="group" style="margin-bottom:30px;">           
-                <button type="submit" name="action" class="btn btn-success" onclick="alert_edit()" id="sendMessageButton">Update</button>
-                <a href="{{url_for('house_detail', house_id=house._id )}}" onclick="alert_no_edit()" class="btn btn-success">Cancel</a> 
+                <button type="submit" name="action" class="waves-effect waves-light btn" onclick="alert_edit()" id="sendMessageButton">Update</button>
+                <a href="{{url_for('house_detail', house_id=house._id )}}" onclick="alert_no_edit()" class="waves-effect waves-light btn">Cancel</a> 
             </div>
         </div>
     </form>

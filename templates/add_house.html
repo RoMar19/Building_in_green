@@ -3,15 +3,15 @@
 
 <!--Form to add a new house to the DB green_buildings -->
 <div class="col s12 m6 l3 text-center">
-    <h2 style="font-size:4vw; margin-top:80px;" class="text-center">Join the Green Builders Comunity</h2>
-    <h4 style="font-size:3vw;" class="text-center">Add your own green home and show it to the world!</h4> 
+    <h4 style="margin-top:80px;" class="center">Join the Green Builders Comunity</h4>
+    <h5 class="center">Add your own green home and show it to the world!</h5> 
 
 <div class="container">
 <div class="row-add">
     <form class="col s12 m6 l3" action="{{ url_for('insert_house') }}" method="POST" name="add_house" id="add_house">
         <div class="row-form">
             <div class="input-field col s12">
-                <i class="material-icons text-success left" style="margin-bottom:20px;">home</i>
+                <i class="material-icons" style="margin-bottom:20px;">home</i>
                 <label class="form-field-category" style="padding-left:50px;">Select Category</label>
                 <select id="category_name" name="category_name">
                     <option value="" disabled selected>Choose Catagory</option>
@@ -25,51 +25,50 @@
         
         <div class="row-form">
             <div class="input-field col s12 m6 l3">
-                        <i class="material-icons text-success left">face</i><br>
+                        <i class="material-icons">face</i><br>
                         <label class="form-field-user" style="margin-top:20px;padding-left:50px;">Your Name</label>
                             <input type="text" class="form-control" id="user_name" name="user_name" required data-validation-required-message="Please enter your name." maxlength="100">
             </div>
         </div>      
         <div class="row-form">
             <div class="input-field col s12 s12 m6 l3">
-                    <i class="material-icons text-success left">house</i>
+                    <i class="material-icons">house</i>
                     <label class="form-field-name" style="margin-top:20px;padding-left:50px;">Green Building name</label>
                         <input type="text" class="form-control" id="house_name" name="house_name" required data-validation-required-message="Please enter your house name." maxlength="100">
             </div>
         </div>
         <div class="row-form">
             <div class="input-field col s12 s12 m6 l3">
-                    <i class="material-icons text-success left">room</i>
+                    <i class="material-icons">room</i>
                     <label class="form-field-location" style="margin-top:20px;padding-left:50px;">Location</label>
                         <input type="text" class="form-control" id="location" name="location" required data-validation-required-message="Please enter your location." maxlength="100">
             </div>
         </div>
         <div class="row-form">
             <div class="input-field col s12 s12 m6 l3">
-                    <i class="material-icons text-success left">calendar_today</i>
+                    <i class="material-icons">calendar_today</i>
                     <label class="form-field-year" style="margin-top:20px;padding-left:50px;">Year of construction</label>
                         <input type="text" class="form-control" id="year" name="year" required data-validation-required-message="Please enter the year of construction." maxlength="4">
             </div>
         </div>                                         
         <div class="row-form">
             <div class="input-field col s12 s12 m6 l3">
-                    <i class="material-icons text-success left" style="padding-top:20px;margin-top:20px;">add_photo_alternate</i>
+                    <i class="material-icons" style="padding-top:20px;margin-top:20px;">add_photo_alternate</i>
                     <label class="form-field-image" style="margin-top:25px;">Add link to your picture</label>
                         <input class="form-control" id="image" name="image" type="url" pattern="https://.*" required data-validation-required-message="Please enter your link" placeholder="Paste the link to your image here">
             </div>
         </div>
         <div class="row-form">
             <div class="input-field col s12 s12 m6 l3">
-                    <i class="material-icons text-success left" style="margin-bottom:10px;">reorder</i>
+                    <i class="material-icons" style="margin-bottom:10px;">reorder</i>
                     <label class="form-field-description" style="margin-top:30px;margin-left:15px;">Description</label>
-                    <textarea class="form-control" id="description" name="description" required data-validation-required-message="Please enter a short house description." maxlength="1000" ></textarea>
+                    <textarea class="form-control" id="description" name="description" type="text" required data-validation-required-message="Please enter a short house description." maxlength="1000" ></textarea>
             </div>
         </div>
         <div class="col s12 s12 m6 l3" style="margin-top: 60px;">
             <div class="btn-group" role="group" style="margin-bottom:30px;">
-                <button class="btn btn-success" type="submit" name="action" onclick="alert_add()" id="sendMessageButton">Insert
-                <i class="material-icons right">send</i></button>
-                <a class="btn btn-success" href="{{url_for('index')}}" onclick="alert_no_add()">Cancel</a>
+                <button class="waves-effect waves-light btn" type="submit" name="action" onclick="alert_add()" id="sendMessageButton">Insert</button>
+                <a class="waves-effect waves-light btn" href="{{url_for('index')}}" onclick="alert_no_add()">Cancel</a>
             </div>
         </div>
             

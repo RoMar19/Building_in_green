@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 
-<div class="col s12 m6 l3 text-center">
-<h2 style="margin-top:80px;font-size:4vw;" class="text-center">View more details</h1>
+<div class="col s12 m6 l3 center">
+<h4 style="margin-top:80px;" class="text-center">View more details</h4>
 
 <!-- Shows the details of the selected house -->
 
@@ -18,9 +18,9 @@
                         <p>By: {{ house.user_name }} - {{ house.year }} - {{ house.location }}</p>
                         <p>{{ house.description }}</p>
                     </div>
-                    <div class="buttons" style="margin-bottom: 20px;">
-                        <a href="{{url_for('edit_house', house_id=house._id)}}" class="btn btn-success">Edit</a>
-                    <button type="button" class="btn btn-danger" onclick="confirm_del()">Delete</button>
+                    <div class="btn-group" style="margin-bottom: 20px; padding-bottom: 20px;">
+                        <a href="{{url_for('edit_house', house_id=house._id)}}" class="waves-effect waves-light btn">Edit</a>
+                    <button type="button" class="waves-effect waves-light btn red darken-4" onclick="confirm_del()">Delete</button>
                     </div>
                 </div>
             </div>
