@@ -1,15 +1,12 @@
 {% extends 'base.html' %} {% block content %}
-<!-- Header -->
-<header>
-<div class="container-masthead">
-    <img class="responsive" src="/static/img/stone_home.jpg">
-    <div class="centered">
-    <h2 style="font-size:6vw;">Welcome to the Green Builders Comunity.<br></h2>
-    <h3 style="font-size:4vw;">This is your site to learn, share and get inspiration about small sustainable houses!</h3>
-    <h5 style="font-size:2vw;">Join the community, just add your Green Building</h5>
+<!-- Masthead -->
+<header class="masthead text-white text-center" style="background-image: url('{{ url_for('static', filename='img/stone_home.jpg') }}')">
+    <div class="container">
+        <h2 class="mb-5">Welcome to the Green Builders Comunity.<br></h2>
+        <h3>This is your site to learn, share and chat about small sustainable houses!</h>
     </div>
-</div>
 </header>
+  
 
     <!-- Icons Grid -->
 <section class="icons"> 
